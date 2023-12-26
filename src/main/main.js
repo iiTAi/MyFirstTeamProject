@@ -50,6 +50,27 @@ function draw() {
         case "epilogue": {
             break;
         }
+    }
+
+    // リトライとポーズとクリアの処理
+    // 全ステージで共通
+    switch (state) {
+        // リトライ
+        case "retry": {
+            // 1秒程度演出挟みたい
+            background(128, 128, 128, 30);  // 仮の処理
+            break;
+        }
+        // ポーズ
+        case "pose": {
+            background(128, 128, 128, 30);  // 仮の処理
+            break;
+        }
+        // クリア
+        case "clear": {
+            background(128, 128, 128, 30);  // 仮の処理
+            break;
+        }
 
     }
 }
@@ -68,17 +89,31 @@ function keyPressed() {
             break;
         }
         case 'r': {
-            // リトライ機能の試験的実装
+            // 強制ミス
             if (state == "draw") {
                 state = "retry";
+            // リトライ処理
             } else if (state == "retry") {
                 state = "setup";
+            // ポーズ画面からリスタートする処理
+            } else if (state == "pose") {
+                state = "setup";
+            // クリア画面から次のステージへ遷移する処理
             } else if (state == "clear") {
                 // ワールドの最終ステージの場合はsceneに適切な文字列を代入すること
                 // 以下試験的実装
                 stage = nextstage;
                 state = "setup";
 
+            }
+            break;
+        }
+        case 'q': {
+            if (state == "draw") {
+                state = "pose";
+            // ポーズ解除
+            } else if (state == "pose") {
+                state = "draw";
             }
             break;
         }

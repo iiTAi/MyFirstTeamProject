@@ -45,9 +45,6 @@ function world0() {
                     state = "setup";
                 }
             // ミス時の処理
-            } else if (state == "retry") {
-                // 1秒程度演出挟みたい
-                background(128, 128, 128, 30);
             }
             break;
         }
@@ -103,11 +100,6 @@ function world0() {
                     state = "clear";  // state"setup"ではなく"clear"を代入
                 }
                 
-            } else if (state == "retry") {
-                // 1秒程度演出挟みたい
-                background(128, 128, 128, 30);
-            } else if (state == "clear") {
-                background(128, 128, 128, 30);
             }
             break;
         }

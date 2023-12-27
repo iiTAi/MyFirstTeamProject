@@ -1,9 +1,9 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <style type="text/css">body{margin:0px; padding:0px; transform: scale(0.8, 0.8);}</style>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/addons/p5.sound.min.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <script src="https://cdn.jsdelivr.net/gh/molleindustria/p5.play/lib/p5.play.js"></script>
         <script src="../objects/character.js"></script>
         <script src="../objects/background.js"></script>
@@ -20,9 +20,35 @@
         <script src="../stage/world3.js"></script>
         <script src="../stage/world4.js"></script>
         <script src="../main/main.js"></script>
+        <link rel="stylesheet" href="../css/style.css" type="text/css">
     </head>
 
     <body>
+        <main>
+            <div id="img-holder">
+
+            </div>
+            <div id="canv-back">
         
+              <div class="option">
+                <input type="radio" id="draw" name="mode">
+                <label for="draw">ペン</label>
+                <input type="radio" id="erase" name="mode">
+                <label for="erase">消しゴム</label><br>
+                <label for="weight">太さ</label>
+                <input type="number" name="mode" id="weight" value="5" style="max-width: 50px;">
+              </div>
+              
+              <div>
+                <input type="submit" id="submit" value="submit">
+              </div>
+              <br>
+              
+              <!-- お絵描きエリアの設定 -->
+              <canvas id="canvas" height="200" width="500" ></canvas>
+            </div>
+        </main>
     </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/4.5.0/fabric.min.js"></script>
+    <script src="../drawjs/fabric.js"></script>
 </html>

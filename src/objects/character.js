@@ -84,10 +84,15 @@ class CharaClass {
 
     // ジャンプメソッド
     // KeyPressed関数内で呼び出される
-    jump() {
-        if (this.jumpenable) {
+    jump(gravity) {
+        if (this.jumpenable && gravity == 'down') {
             this.dy = -20;
             this.y -= 1;  // オブジェクトとの衝突判定を無効にする
+            this.jumpenable = false;
+        }
+        if (this.jumpenable && gravity == 'up') {
+            this.dy = 20;
+            this.y += 1;  // オブジェクトとの衝突判定を無効にする
             this.jumpenable = false;
         }
     }

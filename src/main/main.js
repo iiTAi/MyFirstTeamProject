@@ -5,6 +5,7 @@ let scene = "title";  // 場面を制御する変数
 let stage = "1-1";  // 実行するステージを制御する変数
 let nextstage = null;  // 次のステージを一時的に保持する変数
 let state = "setup";  // 各ステージでの初期化とループを制御する変数
+let gravity = "down";  // 重力の向きを制御する変数
 
 /* インスタンスの生成 */
 var chr = new CharaClass();
@@ -57,7 +58,7 @@ function draw() {
 /* キーが入力された瞬間のみ呼び出される関数 */
 function keyPressed() {
     switch (key) {
-        case 'w': { chr.jump(); break; }
+        case 'w': { chr.jump(gravity); break; }
         // デバッグ用
         case 'c': {
             if (bg.getRed() == 0) {
@@ -73,11 +74,13 @@ function keyPressed() {
                 state = "retry";
             } else if (state == "retry") {
                 state = "setup";
+                gravity = "down";
             } else if (state == "clear") {
                 // ワールドの最終ステージの場合はsceneに適切な文字列を代入すること
                 // 以下試験的実装
                 stage = nextstage;
                 state = "setup";
+                gravity = "down";
 
             }
             break;

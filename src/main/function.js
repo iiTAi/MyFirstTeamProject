@@ -20,7 +20,8 @@ function clash(chr, obj) {
         touch += (chr.getY() >= obj[i].getY() - chr.getHeight()) ? 1 : 0;
         touch += (chr.getY() <= obj[i].getY() + obj[i].getHeight()) ? 1 : 0;
         // 衝突した方向別の自機に対する処理
-        if (touch == 4 && obj[i].getClashenable()) {
+        // 重力が下向きの場合
+        if (touch == 4 && obj[i].getClashenable() && gravity == 'down') {
             if (chr.getY() + 50 - 25 < obj[i].getY()) {
                 chr.setDY(0);
                 chr.setY(obj[i].getY() - chr.getHeight() - 1);
@@ -28,6 +29,23 @@ function clash(chr, obj) {
             } else if (chr.getY() + 25 > obj[i].getY() + obj[i].getHeight()) {
                 chr.setDY(0);
                 chr.setY(obj[i].getY() + obj[i].getHeight() + 1);
+            } else if (chr.getX() + 50 -25 < obj[i].getX()) {
+                chr.setDX(0);
+                chr.setX(obj[i].getX() - chr.getWidth() - 1);
+            } else if (chr.getX() + 25 > obj[i].getX() + obj[i].getWidth()) {
+                chr.setDX(0);
+                chr.setX(obj[i].getX() + obj[i].getWidth() + 1);
+            }
+        }
+        // 重力が上向きの場合
+        if (touch == 4 && obj[i].getClashenable() && gravity == 'up') {
+            if (chr.getY() + 50 - 25 < obj[i].getY()) {
+                chr.setDY(0);
+                chr.setY(obj[i].getY() - chr.getHeight() - 1);
+            } else if (chr.getY() + 25 > obj[i].getY() + obj[i].getHeight()) {
+                chr.setDY(0);
+                chr.setY(obj[i].getY() + obj[i].getHeight() + 1);
+                chr.setJumpenable(true);
             } else if (chr.getX() + 50 -25 < obj[i].getX()) {
                 chr.setDX(0);
                 chr.setX(obj[i].getX() - chr.getWidth() - 1);

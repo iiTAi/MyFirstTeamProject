@@ -15,7 +15,9 @@ function world0() {
                     new RectClass(1, 10),
                     new TransRectClass(1, 5),
                     new ColorChanger(1, 3),
-                    new ClearLine(1, 3)
+                    new ClearLine(1, 3),
+                    new GravityButton(),
+                    new GravityButton()
                 ];
 
                 // 初期化
@@ -28,6 +30,8 @@ function world0() {
                 obj[4].init(25, 13, 255, 255, 255);
                 obj[5].init(19, 13, 255, 255, 255);
                 obj[6].init(37, 15, 255, 255, 255);
+                obj[7].init(5, 17.75, 255, 255, 255);
+                obj[8].init(7, 3, 255, 255, 255);
 
                 state = "draw";
 
@@ -35,7 +39,20 @@ function world0() {
                 bg.push();
                 obj[4].setClash(bg);  // TransRectの衝突判定の有無の設定
                 obj[5].checkClash(chr);  // ColorChangerの色変更が動作するか判別
+                obj[7].checkClash(chr);  // GravityButtonの重力反転が動作するか判別
+                obj[8].checkClash(chr);  // GravityButtonの重力反転が動作するか判別
                 clash(chr, obj);  // 衝突判定処理
+
+                // 重力反転が発生した場合の処理
+                if(obj[7].gravChanged == true) {
+                    chr.setDDY(-chr.getDDY());   // 自機の重力加速度を反転
+                    gravity = (gravity == "down") ? "up" : "down";  // 重力の向きを反転
+                }
+                if(obj[8].gravChanged == true) {
+                    chr.setDDY(-chr.getDDY());
+                    gravity = (gravity == "down") ? "up" : "down";
+                }
+
                 chr.move();  // 自機の左右移動
                 chr.push();  // 自機の描画
                 pushes(obj);  // obj配列の要素の描画

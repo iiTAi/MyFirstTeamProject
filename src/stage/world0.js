@@ -46,11 +46,9 @@ function world0() {
                 // 重力反転が発生した場合の処理
                 if(obj[7].gravChanged == true) {
                     chr.setDDY(-chr.getDDY());   // 自機の重力加速度を反転
-                    gravity = (gravity == "down") ? "up" : "down";  // 重力の向きを反転
                 }
                 if(obj[8].gravChanged == true) {
                     chr.setDDY(-chr.getDDY());
-                    gravity = (gravity == "down") ? "up" : "down";
                 }
 
                 chr.move();  // 自機の左右移動

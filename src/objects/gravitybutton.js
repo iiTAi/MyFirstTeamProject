@@ -29,6 +29,7 @@ class GravityButton extends ObjectClass {
         // 衝突した際の処理
         //this.changed = (touch == 4) ? true : false;
         if (touch == 4 && !(this.changed)) {
+            gravity = (gravity == "down") ? "up" : "down";  // 重力の向きを反転
             this.gravChanged = true;
         } else if (touch != 4) {
             this.gravChanged = false;

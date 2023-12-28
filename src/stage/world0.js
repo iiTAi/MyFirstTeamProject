@@ -17,7 +17,8 @@ function world0() {
                     new ColorChanger(1, 3),
                     new ClearLine(1, 3),
                     new GravityButton(),
-                    new GravityButton()
+                    new GravityButton(),
+                    new OneWayWall(1, 3, "right"),
                 ];
 
                 // 初期化
@@ -32,12 +33,14 @@ function world0() {
                 obj[6].init(37, 15, 255, 255, 255);
                 obj[7].init(5, 17.75, 255, 255, 255);
                 obj[8].init(7, 3, 255, 255, 255);
+                obj[9].init(32, 15, 255, 255, 255);
 
                 state = "draw";
 
             } else if (state == "draw") {
                 bg.push();
                 obj[4].setClash(bg);  // TransRectの衝突判定の有無の設定
+                obj[9].setClash(chr);  // OneWayWallの衝突判定の有無の設定
                 obj[5].checkClash(chr);  // ColorChangerの色変更が動作するか判別
                 obj[7].checkClash(chr);  // GravityButtonの重力反転が動作するか判別
                 obj[8].checkClash(chr);  // GravityButtonの重力反転が動作するか判別
@@ -77,7 +80,9 @@ function world0() {
                     new ColorChanger(1, 18),
                     new ColorChanger(1, 18),
                     new ColorChanger(1, 18),
-                    new ClearLine(1, 3)
+                    new ClearLine(1, 3),
+                    new OneWayWall(1, 3, "right"),
+                    new OneWayWall(1, 3, "left"),
                 ];
 
                 // 初期化
@@ -94,6 +99,8 @@ function world0() {
                 obj[8].init(13, 0, 0, 0, 0);
                 obj[9].init(18, 0, 0, 0, 0);
                 obj[10].init(37, 7, 0, 0, 0);
+                obj[11].init(27, 15, 0, 0, 0);
+                obj[12].init(32, 15, 0, 0, 0);
 
                 state = "draw";
 
@@ -102,7 +109,9 @@ function world0() {
                 obj[2].setClash(bg);
                 obj[3].setClash(bg);
                 obj[5].setClash(bg);                
-                obj[6].setClash(bg);                
+                obj[6].setClash(bg);
+                obj[11].setClash(chr);
+                obj[12].setClash(chr);                
                 obj[7].checkClash(chr);
                 obj[8].checkClash(chr);
                 obj[9].checkClash(chr);

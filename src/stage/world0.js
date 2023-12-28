@@ -18,7 +18,7 @@ function world0() {
                     new ClearLine(1, 3),
                     new GravityButton(),
                     new GravityButton(),
-                    new RightOneWayWall(1, 5)
+                    new OneWayWall(1, 3, "right"),
                 ];
 
                 // 初期化
@@ -33,7 +33,7 @@ function world0() {
                 obj[6].init(37, 15, 255, 255, 255);
                 obj[7].init(5, 17.75, 255, 255, 255);
                 obj[8].init(7, 3, 255, 255, 255);
-                obj[9].init(32, 13, 255, 255, 255);
+                obj[9].init(32, 15, 255, 255, 255);
 
                 state = "draw";
 
@@ -81,8 +81,8 @@ function world0() {
                     new ColorChanger(1, 18),
                     new ColorChanger(1, 18),
                     new ClearLine(1, 3),
-                    new RightOneWayWall(1, 3),
-                    new LeftOneWayWall(1, 3)
+                    new OneWayWall(1, 3, "right"),
+                    new OneWayWall(1, 3, "left"),
                 ];
 
                 // 初期化

@@ -46,14 +46,6 @@ function world0() {
                 obj[8].checkClash(chr);  // GravityButtonの重力反転が動作するか判別
                 clash(chr, obj);  // 衝突判定処理
 
-                // 重力反転が発生した場合の処理
-                if(obj[7].gravChanged == true) {
-                    chr.setDDY(-chr.getDDY());   // 自機の重力加速度を反転
-                }
-                if(obj[8].gravChanged == true) {
-                    chr.setDDY(-chr.getDDY());
-                }
-
                 chr.move();  // 自機の左右移動
                 chr.push();  // 自機の描画
                 pushes(obj);  // obj配列の要素の描画

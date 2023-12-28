@@ -72,12 +72,22 @@ class CharaClass {
         // 描画
         rect(this.x, this.y, this.width, this.height);
         if (this.dx > 0 || this.dx == 0 && this.facebuf == 0) {
-            line(this.x + 24, this.y + 10, this.x + 24, this.y + 30);
-            line(this.x + 36, this.y + 10, this.x + 36, this.y + 30);
+            if (gravity == 'down') {
+                line(this.x + 24, this.y + 10, this.x + 24, this.y + 30);
+                line(this.x + 36, this.y + 10, this.x + 36, this.y + 30);
+            } else if (gravity == 'up') {
+                line(this.x + 24, this.y + 20, this.x + 24, this.y + 40);
+                line(this.x + 36, this.y + 20, this.x + 36, this.y + 40);
+            }
             this.facebuf = 0;
         } else if (this.dx < 0 || this.dx == 0 && this.facebuf == 1) {
-            line(this.x + 13, this.y + 10, this.x + 13, this.y + 30);
-            line(this.x + 25, this.y + 10, this.x + 25, this.y + 30);
+            if (gravity == 'down') {
+                line(this.x + 13, this.y + 10, this.x + 13, this.y + 30);
+                line(this.x + 25, this.y + 10, this.x + 25, this.y + 30);
+            } else if (gravity == 'up') {
+                line(this.x + 13, this.y + 20, this.x + 13, this.y + 40);
+                line(this.x + 25, this.y + 20, this.x + 25, this.y + 40);
+            }
             this.facebuf = 1;
         }
     }

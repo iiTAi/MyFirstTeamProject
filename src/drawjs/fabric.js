@@ -3,7 +3,7 @@ canvas.backgroundColor = "white";
 
 document.getElementById("draw").addEventListener("click", () => {
   canvas.freeDrawingBrush = new fabric.PencilBrush(canvas);
-  canvas.freeDrawingBrush.width = 5;
+  canvas.freeDrawingBrush.width = document.getElementById("weight").value;
   canvas.freeDrawingBrush.color = "black";
   canvas.isDrawingMode = true;
 });
@@ -12,7 +12,8 @@ document.getElementById("reset").addEventListener("click", () => {
 });
 document.getElementById("erase").addEventListener("click", () => {
   canvas.freeDrawingBrush = new fabric.PencilBrush(canvas);
-  canvas.freeDrawingBrush.width = 5;
+  canvas.freeDrawingBrush.width = document.getElementById("weight").value;
+
   canvas.freeDrawingBrush.color = "white";
   canvas.isDrawingMode = true;
 });

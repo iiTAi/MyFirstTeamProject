@@ -17,18 +17,58 @@ main{
     margin: 0;
 }
 #canv-back{
-    margin: 0 auto;
-    max-width: 500px;
+    position: absolute;
+    top: 3em;
+    left: 50%;
+    transform:translateX(-50%);
+    max-width: 900px;
     background-color: white;
     border: 2px black solid;
     z-index: 6;
+    
 }
 .option{
-    padding-left: 1em;
-    padding-right: 1em;
+    position: relative;
+    width: calc(100% - 2em);
+    padding: 0 1em;
+    font-size: 2em;
+    display: flex;
+    justify-content: left;
+
+}
+.option button{
+    margin: 0;
+    border: none;
+    cursor: pointer;
+}
+
+.option img{
+    border: none;
+}
+#submit{
+    font-size: 1em;
+    margin:0;
+    margin-left: 0.5em;
+}
+.close{
+    padding:0;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.left-content{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+.right-content{
+    display: flex;
+    justify-content: right;
 }
 #canvas{
     border: 2px black solid;
+    width: 100%;
 }
 .cover{
     position: absolute;
@@ -38,7 +78,11 @@ main{
     left: 0;
 }
 
-@keyframes bubleup {
+#weight{
+    border: 3px black solid;
+}
+
+@keyframes slide {
     
     to{
         left: 100vw
@@ -63,9 +107,9 @@ main{
     pointer-events: none;
     opacity: 0;
 }
-img{
+#image-holder img{
     border: 1px black solid;
-    animation: bubleup 10s 1s linear infinite;
+    animation: slide 10s 1s linear infinite;
     animation-fill-mode:backwards;
     overflow:hidden;
 }

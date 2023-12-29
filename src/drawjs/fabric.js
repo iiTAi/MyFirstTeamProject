@@ -1,13 +1,15 @@
 const canvas = new fabric.Canvas("canvas");
 canvas.backgroundColor = "white";
 
-document.getElementById("draw").addEventListener("click", function () {
+document.getElementById("draw").addEventListener("click", () => {
   canvas.freeDrawingBrush = new fabric.PencilBrush(canvas);
   canvas.freeDrawingBrush.width = 5;
   canvas.freeDrawingBrush.color = "black";
   canvas.isDrawingMode = true;
 });
-
+document.getElementById("reset").addEventListener("click", () => {
+  canvas.clear();
+});
 document.getElementById("erase").addEventListener("click", () => {
   canvas.freeDrawingBrush = new fabric.PencilBrush(canvas);
   canvas.freeDrawingBrush.width = 5;

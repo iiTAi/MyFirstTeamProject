@@ -1,9 +1,18 @@
 /* 重力反転ボタン用長方形クラス */
 class GravityButton extends ObjectClass {
     // コンストラクタ
-    constructor() {
+    constructor(position) {
         super(1, 0.25, true);
+        this.position = position;  // 重力反転ボタンが床と天井のどちらに設置されているかを判別する変数
         this.gravChanged = false;  // 重力反転が完了すると立つフラグ
+    }
+
+    // 床に設置する場合はy座標に37.5を加算する
+    init(x_block, y_block, red, green, blue) {
+        super.init(x_block, y_block, red, green, blue);
+        if (this.position == "floor") {
+            this.y += 37.5;
+        }
     }
 
     // 描画メソッド
@@ -15,6 +24,14 @@ class GravityButton extends ObjectClass {
             stroke(255);
         }
         rect(this.x, this.y, this.width, this.height);
+
+        line(this.x + this.width / 3, this.y, this.x + this.width / 3, this.y + this.height);
+        line(this.x + this.width / 3, this.y + this.height, this.x + this.width / 3 - 6, this.y + this.height - 5);
+        line(this.x + this.width / 3, this.y + this.height, this.x + this.width / 3 + 6, this.y + this.height - 5);
+
+        line(this.x + this.width * 2 / 3, this.y, this.x + this.width * 2 / 3, this.y + this.height);
+        line(this.x + this.width * 2 / 3, this.y, this.x + this.width * 2 / 3 - 6, this.y + 5);
+        line(this.x + this.width * 2 / 3, this.y, this.x + this.width * 2 / 3 + 6, this.y + 5);
     }
 
     // 重力反転が発生するかどうかを判定するメソッド

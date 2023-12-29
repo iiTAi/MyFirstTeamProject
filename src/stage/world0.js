@@ -16,8 +16,8 @@ function world0() {
                     new TransRectClass(1, 5),
                     new ColorChanger(1, 3),
                     new ClearLine(1, 3),
-                    new GravityButton(),
-                    new GravityButton(),
+                    new GravityButton("floor"),
+                    new GravityButton("ceiling"),
                     new OneWayWall(1, 3, "right"),
                 ];
 
@@ -31,7 +31,7 @@ function world0() {
                 obj[4].init(25, 13, 255, 255, 255);
                 obj[5].init(19, 13, 255, 255, 255);
                 obj[6].init(37, 15, 255, 255, 255);
-                obj[7].init(5, 17.75, 255, 255, 255);
+                obj[7].init(5, 17, 255, 255, 255);
                 obj[8].init(7, 3, 255, 255, 255);
                 obj[9].init(32, 15, 255, 255, 255);
 

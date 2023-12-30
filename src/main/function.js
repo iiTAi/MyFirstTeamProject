@@ -73,3 +73,11 @@ function colorChange(chr, obj, bg, red, green, blue) {
         bg.setRGB(255, 255, 255);
     }
 }
+// 低い階層にある物体の色を変更するメソッド
+function systemCChange(obj_retry, red, green, blue) {
+    for (let i = 0; i < obj_retry.length; i++) {
+        if (obj_retry[i].getCchange()) {
+            obj_retry[i].setRGB(red, green, blue);
+        }
+    }
+}

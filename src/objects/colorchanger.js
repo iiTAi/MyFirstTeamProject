@@ -28,8 +28,10 @@ class ColorChanger extends ObjectClass {
         if (touch == 4 && !(this.changed)) {
             if (bg.getRed() == 0) {
                 colorChange(chr, obj, bg, 0, 0, 0);
+                systemCChange(obj_retry, 0, 0, 0);
             } else {
                 colorChange(chr, obj, bg, 255, 255, 255);
+                systemCChange(obj_retry, 255, 255, 255);
             }
             this.changed = true;
         } else if (touch != 4) {

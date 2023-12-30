@@ -40,7 +40,10 @@ class ObjectClass {
 
     // 各種アクセッサ
     getX() { return this.x; }
+    setX(x) { this.x = x; }
+
     getY() { return this.y; }
+    setY(y) { this.y = y; }
 
     getWidth() { return this.width; }
     getHeight() { return this.height; }

@@ -17,7 +17,8 @@ function world0() {
                     new ColorChanger(1, 3),
                     new ClearLine(1, 3),
                     new GravityButton(),
-                    new GravityButton()
+                    new GravityButton(),
+                    new BreakFloar(5,2,8)
                 ];
 
                 // 初期化
@@ -32,7 +33,7 @@ function world0() {
                 obj[6].init(37, 15, 255, 255, 255);
                 obj[7].init(5, 17.75, 255, 255, 255);
                 obj[8].init(7, 3, 255, 255, 255);
-
+                obj[9].init(26,10,128,128,128) //壊れる床追加
                 state = "draw";
 
             } else if (state == "draw") {
@@ -41,6 +42,8 @@ function world0() {
                 obj[5].checkClash(chr);  // ColorChangerの色変更が動作するか判別
                 obj[7].checkClash(chr);  // GravityButtonの重力反転が動作するか判別
                 obj[8].checkClash(chr);  // GravityButtonの重力反転が動作するか判別
+                obj[9].checkClash(chr);  //BreakFloarの破壊ができているか判別
+
                 clash(chr, obj);  // 衝突判定処理
 
                 // 重力反転が発生した場合の処理

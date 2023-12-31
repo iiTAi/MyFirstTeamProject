@@ -152,6 +152,25 @@ class CharaClass {
         }
     }
 
+    // 落下判定と水平方向の衝突判定メソッド
+    // ループの度呼び出される
+    checkOffScreen() {
+        // 水平方向の衝突判定
+        if (this.x < 9) {
+            this.dx = 0;
+            this.x = 9;
+        } else if (this.x > 1859) {
+            this.dx = 0;
+            this.x = 1859;
+        }
+
+        // 落下判定
+        // 自機が画面外へ出た瞬間にミスとする
+        if (this.y < -49 || this.y > 1079) {
+            state = "retry";
+        }
+    }
+
     // 各種アクセッサ
     getX() { return this.x; }
     setX(x) { this.x = x; }

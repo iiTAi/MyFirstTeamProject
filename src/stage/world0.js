@@ -48,6 +48,7 @@ function world0() {
                 obj[8].checkClash(chr);  // GravityButtonの重力反転が動作するか判別
                 obj[10].checkClash(chr);  // WarpPortalのワープが動作するか判別
                 clash(chr, obj);  // 衝突判定処理
+                chr.checkOffScreen();  // 落下判定と水平方向への衝突処理
 
                 chr.move();  // 自機の左右移動
                 chr.push();  // 自機の描画
@@ -111,6 +112,7 @@ function world0() {
                 obj[8].checkClash(chr);
                 obj[9].checkClash(chr);
                 clash(chr, obj);
+                chr.checkOffScreen();
                 chr.move();
                 chr.push();
                 pushes(obj);

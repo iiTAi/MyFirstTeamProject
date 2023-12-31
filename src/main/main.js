@@ -22,7 +22,9 @@ var obj_retry = [
     new TextClass("RETRY: PRESS R", 100, false),
     new TextClass("POSE", 100, false),
     new TextClass("CLEAR", 300, false),
-    new TextClass("NEXT:  PRESS R", 100, false)
+    new TextClass("NEXT:  PRESS R", 100, false),
+    new TextClass("VividQuest(仮)", 200, false),
+    new TextClass("START: PRESS ANY", 100, false)
 ];
 
 /* 事前読み込み */
@@ -40,6 +42,8 @@ function setup() {
     obj_retry[2].init(1, 1, 255, 255, 255);
     obj_retry[3].init(13, 7, 255, 255, 255);
     obj_retry[4].init(13, 13, 255, 255, 255);
+    obj_retry[5].init(7, 7, 255, 255, 255);
+    obj_retry[6].init(11, 13, 255, 255, 255);
 }
 
 /* ループ */
@@ -47,7 +51,9 @@ function draw() {
     // 場面の分岐
     switch (scene) {
         case "title": {
-            scene = "world0";
+            background(0);
+            obj_retry[5].push();
+            obj_retry[6].push();
             break;
         }
         case "option": {
@@ -84,6 +90,7 @@ function draw() {
         case "retry": {
             if (!(flag[0])) {
                 fill(128, 128, 128, 90);
+                noStroke();
                 rect(0, 0, 1920, 1080);
                 obj_retry[0].push();
                 obj_retry[1].push();   
@@ -95,6 +102,7 @@ function draw() {
         case "pose": {
             if (!(flag[0])) {
                 fill(128, 128, 128, 90);
+                noStroke();
                 rect(0, 0, 1920, 1080);
                 obj_retry[2].push();
                 flag[0] = true;
@@ -105,6 +113,7 @@ function draw() {
         case "clear": {
             if (!(flag[0])) {
                 fill(128, 128, 128, 90);
+                noStroke();
                 rect(0, 0, 1920, 1080);
                 obj_retry[3].push();
                 obj_retry[4].push();
@@ -118,6 +127,9 @@ function draw() {
 
 /* キーが入力された瞬間のみ呼び出される関数 */
 function keyPressed() {
+    if (scene == "title") {
+        scene = "world0";
+    }
     switch (key) {
         case 'w': { chr.jump(gravity); break; }
         // デバッグ用

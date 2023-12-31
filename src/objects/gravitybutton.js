@@ -45,7 +45,7 @@ class GravityButton extends ObjectClass {
         touch += (chr.getY() <= this.y + this.height) ? 1 : 0;
         // 衝突した際の処理
         //this.changed = (touch == 4) ? true : false;
-        if (touch == 4 && !(this.changed)) {
+        if (touch == 4 && !(this.gravChanged)) {
             gravity = (gravity == "down") ? "up" : "down";  // 重力の向き(ジャンプの向き)を反転
             chr.setDDY(-chr.getDDY());  // 自機の重力加速度を反転
             this.gravChanged = true;

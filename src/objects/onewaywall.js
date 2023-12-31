@@ -48,7 +48,7 @@ class OneWayWall extends ObjectClass {
     // 当たり判定の設定
     // drawメソッドのclash関数の前で呼び出すこと
     setClash(chr) {
-        if (chr.getY() + chr.getHeight() <= this.y + 5) {
+        if (chr.getY() + chr.getHeight() <= this.y + 20) {
             this.clashenable = true;
         }
         else if (this.direction == "right") {

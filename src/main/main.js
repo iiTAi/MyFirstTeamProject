@@ -90,6 +90,7 @@ function draw() {
         case "retry": {
             if (!(flag[0])) {
                 fill(128, 128, 128, 90);
+                noStroke();
                 rect(0, 0, 1920, 1080);
                 obj_retry[0].push();
                 obj_retry[1].push();   
@@ -101,6 +102,7 @@ function draw() {
         case "pose": {
             if (!(flag[0])) {
                 fill(128, 128, 128, 90);
+                noStroke();
                 rect(0, 0, 1920, 1080);
                 obj_retry[2].push();
                 flag[0] = true;
@@ -111,6 +113,7 @@ function draw() {
         case "clear": {
             if (!(flag[0])) {
                 fill(128, 128, 128, 90);
+                noStroke();
                 rect(0, 0, 1920, 1080);
                 obj_retry[3].push();
                 obj_retry[4].push();

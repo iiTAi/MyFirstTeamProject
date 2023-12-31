@@ -19,7 +19,8 @@ function world0() {
                     new GravityButton("floor"),
                     new GravityButton("ceiling"),
                     new OneWayWall(1, 3, "right"),
-                    new WarpPortal("floor", 1, 17),
+                    new WarpPortal("floor", 0, 1),
+                    new WarpPortal("floor", 1, 0),
                 ];
 
                 // 初期化
@@ -36,6 +37,7 @@ function world0() {
                 obj[8].init(7, 3, 255, 255, 255);
                 obj[9].init(32, 15, 255, 255, 255);
                 obj[10].init(35, 17, 255, 255, 255);
+                obj[11].init(2, 17, 255, 255, 255);
 
                 state = "draw";
 
@@ -46,7 +48,8 @@ function world0() {
                 obj[5].checkClash(chr);  // ColorChangerの色変更が動作するか判別
                 obj[7].checkClash(chr);  // GravityButtonの重力反転が動作するか判別
                 obj[8].checkClash(chr);  // GravityButtonの重力反転が動作するか判別
-                obj[10].checkClash(chr);  // WarpPortalのワープが動作するか判別
+                obj[10].checkClash(chr, obj);  // WarpPortalのワープが動作するか判別
+                obj[11].checkClash(chr, obj);  // WarpPortalのワープが動作するか判別
                 clash(chr, obj);  // 衝突判定処理
                 chr.checkOffScreen();  // 落下判定と水平方向への衝突処理
 

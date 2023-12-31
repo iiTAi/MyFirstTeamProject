@@ -1,11 +1,11 @@
 /* ワープポータル用長方形クラス */
 class WarpPortal extends ObjectClass {
     // コンストラクタ
-    constructor(position, warpX, warpY) {
+    constructor(position, uniID, warpID) {
         super(1, 0.25, true);
         this.position = position;  // ワープポータルが床と天井のどちらに設置されているかを判別する変数
-        this.warpX = warpX;  // ワープ先のx座標
-        this.warpY = warpY;  // ワープ先のy座標
+        this.uniID = uniID;  // ワープポータルのID
+        this.warpID = warpID;  // ワープ先のID
         this.warpComp = false;  // ワープが完了すると立つフラグ
     }
 
@@ -40,7 +40,7 @@ class WarpPortal extends ObjectClass {
 
     // ワープが発生するかどうかを判定するメソッド
     // 当クラスの図形に自機が衝突するとワープする仕様
-    checkClash(chr) {
+    checkClash(chr, obj) {
         // 物体との衝突を判定
         let touch = 0;
         touch += (chr.getX() >= this.x - chr.getWidth()) ? 1 : 0;
@@ -50,8 +50,14 @@ class WarpPortal extends ObjectClass {
 
         // 衝突した際の処理
         if (touch == 4 && !(this.warpComp) && chr.getDX() == 0) {
-            chr.setX(50 * this.warpX + 10);
-            chr.setY(50 * this.warpY + 15);
+            for (let i = 0; i < obj.length; i++) {
+                if (obj[i].uniID == this.warpID && obj[i] != this) {
+                    chr.setX(obj[i].getX());
+                    chr.setY(obj[i].getY() - 50);
+                    obj[i].warpComp = true;
+                    break;
+                }
+            }
             this.warpComp = true;
         } else if (touch != 4) {
             this.warpComp = false;

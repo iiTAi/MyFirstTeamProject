@@ -21,6 +21,7 @@ function world0() {
                     new OneWayWall(1, 3, "right"),
                     new WarpPortal("floor", 0, 1),
                     new WarpPortal("floor", 1, 0),
+                    new UnjumpableSign(),
                 ];
 
                 // 初期化
@@ -38,6 +39,7 @@ function world0() {
                 obj[9].init(32, 15, 255, 255, 255);
                 obj[10].init(35, 17, 255, 255, 255);
                 obj[11].init(2, 17, 255, 255, 255);
+                obj[12].init(1, 17, 255, 255, 255);
 
                 state = "draw";
 
@@ -53,6 +55,7 @@ function world0() {
                 clash(chr, obj);  // 衝突判定処理
                 chr.checkOffScreen();  // 落下判定と水平方向への衝突処理
 
+                chr.setJumpenable(false);  // ジャンプ禁止の設定
                 chr.move();  // 自機の左右移動
                 chr.push();  // 自機の描画
                 pushes(obj);  // obj配列の要素の描画
@@ -61,7 +64,7 @@ function world0() {
                     stage = "1-2";
                     state = "setup";
                 }
-            // ミス時の処理
+                // ミス時の処理
             }
             break;
         }
@@ -107,10 +110,10 @@ function world0() {
                 bg.push();
                 obj[2].setClash(bg);
                 obj[3].setClash(bg);
-                obj[5].setClash(bg);                
+                obj[5].setClash(bg);
                 obj[6].setClash(bg);
                 obj[11].setClash(chr);
-                obj[12].setClash(chr);                
+                obj[12].setClash(chr);
                 obj[7].checkClash(chr);
                 obj[8].checkClash(chr);
                 obj[9].checkClash(chr);
@@ -123,7 +126,7 @@ function world0() {
                     nextstage = "1-1";  // ステージの最後の画面ではnextstageに次のステージを格納
                     state = "clear";  // state"setup"ではなく"clear"を代入
                 }
-                
+
             }
             break;
         }

@@ -16,9 +16,17 @@ function world0() {
                     new TransRectClass(1, 5),
                     new ColorChanger(1, 3),
                     new ClearLine(1, 3),
+<<<<<<< HEAD
                     new GravityButton(),
                     new GravityButton(),
-                    new BreakFloar(5,2,8)
+                    new BreakFloar(5,1,10)     //三つ目の引数は壊れる速度
+=======
+                    new GravityButton("floor"),
+                    new GravityButton("ceiling"),
+                    new OneWayWall(1, 3, "right"),
+                    new WarpPortal("floor", 0, 1),
+                    new WarpPortal("floor", 1, 0),
+>>>>>>> 8931beb385158d893f13853c0c50183151978961
                 ];
 
                 // 初期化
@@ -31,32 +39,39 @@ function world0() {
                 obj[4].init(25, 13, 255, 255, 255);
                 obj[5].init(19, 13, 255, 255, 255);
                 obj[6].init(37, 15, 255, 255, 255);
-                obj[7].init(5, 17.75, 255, 255, 255);
+                obj[7].init(5, 17, 255, 255, 255);
                 obj[8].init(7, 3, 255, 255, 255);
-                obj[9].init(26,10,128,128,128) //壊れる床追加
+<<<<<<< HEAD
+                obj[9].init(17,12,128,128,128); //壊れる床
+=======
+                obj[9].init(32, 15, 255, 255, 255);
+                obj[10].init(35, 17, 255, 255, 255);
+                obj[11].init(2, 17, 255, 255, 255);
+
+>>>>>>> 8931beb385158d893f13853c0c50183151978961
                 state = "draw";
 
             } else if (state == "draw") {
                 bg.push();
                 obj[4].setClash(bg);  // TransRectの衝突判定の有無の設定
+                obj[9].setClash(chr);  // OneWayWallの衝突判定の有無の設定
                 obj[5].checkClash(chr);  // ColorChangerの色変更が動作するか判別
                 obj[7].checkClash(chr);  // GravityButtonの重力反転が動作するか判別
                 obj[8].checkClash(chr);  // GravityButtonの重力反転が動作するか判別
-                obj[9].checkClash(chr);  //BreakFloarの破壊ができているか判別
-
+<<<<<<< HEAD
+                obj[9].checkClash(chr);  //breakfloarの通貨判定
+=======
+                obj[10].checkClash(chr, obj);  // WarpPortalのワープが動作するか判別
+                obj[11].checkClash(chr, obj);  // WarpPortalのワープが動作するか判別
+>>>>>>> 8931beb385158d893f13853c0c50183151978961
                 clash(chr, obj);  // 衝突判定処理
-
-                // 重力反転が発生した場合の処理
-                if(obj[7].gravChanged == true) {
-                    chr.setDDY(-chr.getDDY());   // 自機の重力加速度を反転
-                }
-                if(obj[8].gravChanged == true) {
-                    chr.setDDY(-chr.getDDY());
-                }
+                chr.checkOffScreen();  // 落下判定と水平方向への衝突処理
 
                 chr.move();  // 自機の左右移動
                 chr.push();  // 自機の描画
                 pushes(obj);  // obj配列の要素の描画
+                
+                
                 // ゴール判定
                 if (obj[6].checkClear(chr)) {
                     stage = "1-2";
@@ -80,7 +95,9 @@ function world0() {
                     new ColorChanger(1, 18),
                     new ColorChanger(1, 18),
                     new ColorChanger(1, 18),
-                    new ClearLine(1, 3)
+                    new ClearLine(1, 3),
+                    new OneWayWall(1, 3, "right"),
+                    new OneWayWall(1, 3, "left"),
                 ];
 
                 // 初期化
@@ -97,6 +114,8 @@ function world0() {
                 obj[8].init(13, 0, 0, 0, 0);
                 obj[9].init(18, 0, 0, 0, 0);
                 obj[10].init(37, 7, 0, 0, 0);
+                obj[11].init(27, 15, 0, 0, 0);
+                obj[12].init(32, 15, 0, 0, 0);
 
                 state = "draw";
 
@@ -105,11 +124,14 @@ function world0() {
                 obj[2].setClash(bg);
                 obj[3].setClash(bg);
                 obj[5].setClash(bg);                
-                obj[6].setClash(bg);                
+                obj[6].setClash(bg);
+                obj[11].setClash(chr);
+                obj[12].setClash(chr);                
                 obj[7].checkClash(chr);
                 obj[8].checkClash(chr);
                 obj[9].checkClash(chr);
                 clash(chr, obj);
+                chr.checkOffScreen();
                 chr.move();
                 chr.push();
                 pushes(obj);

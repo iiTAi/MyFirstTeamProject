@@ -72,12 +72,22 @@ class CharaClass {
         // 描画
         rect(this.x, this.y, this.width, this.height);
         if (this.dx > 0 || this.dx == 0 && this.facebuf == 0) {
-            line(this.x + 24, this.y + 10, this.x + 24, this.y + 30);
-            line(this.x + 36, this.y + 10, this.x + 36, this.y + 30);
+            if (gravity == 'down') {
+                line(this.x + 24, this.y + 10, this.x + 24, this.y + 30);
+                line(this.x + 36, this.y + 10, this.x + 36, this.y + 30);
+            } else if (gravity == 'up') {
+                line(this.x + 24, this.y + 20, this.x + 24, this.y + 40);
+                line(this.x + 36, this.y + 20, this.x + 36, this.y + 40);
+            }
             this.facebuf = 0;
         } else if (this.dx < 0 || this.dx == 0 && this.facebuf == 1) {
-            line(this.x + 13, this.y + 10, this.x + 13, this.y + 30);
-            line(this.x + 25, this.y + 10, this.x + 25, this.y + 30);
+            if (gravity == 'down') {
+                line(this.x + 13, this.y + 10, this.x + 13, this.y + 30);
+                line(this.x + 25, this.y + 10, this.x + 25, this.y + 30);
+            } else if (gravity == 'up') {
+                line(this.x + 13, this.y + 20, this.x + 13, this.y + 40);
+                line(this.x + 25, this.y + 20, this.x + 25, this.y + 40);
+            }
             this.facebuf = 1;
         }
     }
@@ -139,6 +149,25 @@ class CharaClass {
                 this.moveRight();
                 this.keybuf = 'd';
             }
+        }
+    }
+
+    // 落下判定と水平方向の衝突判定メソッド
+    // ループの度呼び出される
+    checkOffScreen() {
+        // 水平方向の衝突判定
+        if (this.x < 9) {
+            this.dx = 0;
+            this.x = 9;
+        } else if (this.x > 1859) {
+            this.dx = 0;
+            this.x = 1859;
+        }
+
+        // 落下判定
+        // 自機が画面外へ出た瞬間にミスとする
+        if (this.y < -49 || this.y > 1079) {
+            state = "retry";
         }
     }
 

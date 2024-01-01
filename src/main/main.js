@@ -7,15 +7,43 @@ let nextstage = null;  // 次のステージを一時的に保持する変数
 let state = "setup";  // 各ステージでの初期化とループを制御する変数
 let gravity = "down";  // 重力の向きを制御する変数
 
+/* 各種フラグ */
+// 必要な時に必要な数だけ使うこと
+let flag = [
+    false
+]
+
 /* インスタンスの生成 */
 var chr = new CharaClass();
 var bg = new BackGroundClass();
 var obj = [];
+var obj_retry = [
+    new TextClass("MISS", 300, false),
+    new TextClass("RETRY: PRESS R", 100, false),
+    new TextClass("POSE", 100, false),
+    new TextClass("CLEAR", 300, false),
+    new TextClass("NEXT:  PRESS R", 100, false),
+    new TextClass("VividQuest(仮)", 200, false),
+    new TextClass("START: PRESS ANY", 100, false)
+];
+
+/* 事前読み込み */
+function preload() {
+    myfont = loadFont("../../font/misaki_gothic_2nd.ttf");
+}
 
 /* セットアップ */
 function setup() {
     createCanvas(1920, 1080);
     frameRate(60);
+    textFont(myfont);
+    obj_retry[0].init(14, 7, 255, 255, 255);
+    obj_retry[1].init(13, 13, 255, 255, 255);
+    obj_retry[2].init(1, 1, 255, 255, 255);
+    obj_retry[3].init(13, 7, 255, 255, 255);
+    obj_retry[4].init(13, 13, 255, 255, 255);
+    obj_retry[5].init(7, 7, 255, 255, 255);
+    obj_retry[6].init(11, 13, 255, 255, 255);
 }
 
 /* ループ */
@@ -23,7 +51,9 @@ function draw() {
     // 場面の分岐
     switch (scene) {
         case "title": {
-            scene = "world0";
+            background(0);
+            obj_retry[5].push();
+            obj_retry[6].push();
             break;
         }
         case "option": {
@@ -58,18 +88,37 @@ function draw() {
     switch (state) {
         // リトライ
         case "retry": {
-            // 1秒程度演出挟みたい
-            background(128, 128, 128, 30);  // 仮の処理
+            if (!(flag[0])) {
+                fill(128, 128, 128, 90);
+                noStroke();
+                rect(0, 0, 1920, 1080);
+                obj_retry[0].push();
+                obj_retry[1].push();   
+                flag[0] = true;
+            }
             break;
         }
         // ポーズ
         case "pose": {
-            background(128, 128, 128, 30);  // 仮の処理
+            if (!(flag[0])) {
+                fill(128, 128, 128, 90);
+                noStroke();
+                rect(0, 0, 1920, 1080);
+                obj_retry[2].push();
+                flag[0] = true;
+            }
             break;
         }
         // クリア
         case "clear": {
-            background(128, 128, 128, 30);  // 仮の処理
+            if (!(flag[0])) {
+                fill(128, 128, 128, 90);
+                noStroke();
+                rect(0, 0, 1920, 1080);
+                obj_retry[3].push();
+                obj_retry[4].push();
+                flag[0] = true;
+            }
             break;
         }
 
@@ -78,14 +127,19 @@ function draw() {
 
 /* キーが入力された瞬間のみ呼び出される関数 */
 function keyPressed() {
+    if (scene == "title") {
+        scene = "world0";
+    }
     switch (key) {
         case 'w': { chr.jump(gravity); break; }
         // デバッグ用
         case 'c': {
             if (bg.getRed() == 0) {
                 colorChange(chr, obj, bg, 0, 0, 0);
+                systemCChange(obj_retry, 0, 0, 0);
             } else {
                 colorChange(chr, obj, bg, 255, 255, 255);
+                systemCChange(obj_retry, 255, 255, 255);
             }
             break;
         }
@@ -97,6 +151,7 @@ function keyPressed() {
             } else if (state == "retry") {
                 state = "setup";
                 gravity = "down";
+                flag[0] = false;
             // ポーズ画面からリスタートする処理
             } else if (state == "pose") {
                 state = "setup";
@@ -108,7 +163,7 @@ function keyPressed() {
                 stage = nextstage;
                 state = "setup";
                 gravity = "down";
-
+                flag[0] = false;
             }
             break;
         }
@@ -118,6 +173,7 @@ function keyPressed() {
             // ポーズ解除
             } else if (state == "pose") {
                 state = "draw";
+                flag[0] = false;
             }
             break;
         }

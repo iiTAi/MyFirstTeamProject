@@ -20,10 +20,8 @@ class UnjumpableSign extends ObjectClass {
         circle(this.x + 50, this.y - 12.5, 65);
         circle(this.x + 50, this.y - 12.5, 50);
 
-        textSize(22);
-        textFont("Impact");
-        text("JUMP", this.x + 28, this.y - 4);
-        textFont("myfont");
+        textSize(26);
+        text("JUMP", this.x + 26, this.y - 2);
 
         line(this.x + 64, this.y - 32.5, this.x + 30, this.y + 1.5);
         line(this.x + 70, this.y - 26.5, this.x + 36, this.y + 7.5);

@@ -18,13 +18,12 @@ main{
 }
 #canv-back{
     margin: 0 auto;
-    max-width: 500px;
+    max-width: 900px;
     background-color: white;
     border: 2px black solid;
     z-index: 6;
 }
 .option{
-<<<<<<< HEAD
     position: relative;
     width: calc(100%);
     
@@ -47,7 +46,7 @@ main{
     margin:0;
     margin-left: 0.5em;
 }
-.close{
+#close{
     padding:0;
     position: absolute;
     top: 0;
@@ -62,10 +61,6 @@ main{
 .right-content{
     display: flex;
     justify-content: right;
-=======
-    padding-left: 1em;
-    padding-right: 1em;
->>>>>>> parent of 0316386 (add reset and close)
 }
 #canvas{
     border: 2px black solid;

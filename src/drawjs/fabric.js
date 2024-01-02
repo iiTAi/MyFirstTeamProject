@@ -31,6 +31,12 @@ document.getElementById("submit").addEventListener("click", () => {
     document.getElementById("canv-back").classList.toggle("none");
   }, 300);
 });
+document.getElementById("reset").addEventListener("click", () => {
+  canvas.clear();
+});
+document.getElementById("close").addEventListener("click", () => {
+  document.getElementById("canv-back").classList.add("none");
+});
 
 window.addEventListener("load", () => {
   const img_holder = document.getElementById("img-holder");
@@ -43,7 +49,7 @@ window.addEventListener("load", () => {
       img_element.height = 100;
       img_element.style.position = "absolute";
       let x = Math.random() * 1000 + 100;
-      let y = Math.random() * 400;
+      let y = Math.random() * 400 + 100;
       img_element.style.top = y;
       img_element.style.left = -x;
       img_element.style.zIndex = 5;

@@ -17,17 +17,14 @@ main{
     margin: 0;
 }
 #canv-back{
-    position: absolute;
-    top: 3em;
-    left: 50%;
-    transform:translateX(-50%);
-    max-width: 900px;
+    margin: 0 auto;
+    max-width: 500px;
     background-color: white;
     border: 2px black solid;
     z-index: 6;
-    
 }
 .option{
+<<<<<<< HEAD
     position: relative;
     width: calc(100%);
     
@@ -65,10 +62,13 @@ main{
 .right-content{
     display: flex;
     justify-content: right;
+=======
+    padding-left: 1em;
+    padding-right: 1em;
+>>>>>>> parent of 0316386 (add reset and close)
 }
 #canvas{
     border: 2px black solid;
-    width: 100%;
 }
 .cover{
     position: absolute;
@@ -78,11 +78,7 @@ main{
     left: 0;
 }
 
-#weight{
-    border: 3px black solid;
-}
-
-@keyframes slide {
+@keyframes bubleup {
     
     to{
         left: 100vw
@@ -107,9 +103,9 @@ main{
     pointer-events: none;
     opacity: 0;
 }
-#image-holder img{
+img{
     border: 1px black solid;
-    animation: slide 10s 1s linear infinite;
+    animation: bubleup 10s 1s linear infinite;
     animation-fill-mode:backwards;
     overflow:hidden;
 }

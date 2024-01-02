@@ -31,29 +31,21 @@
             <div id="canv-back">
         
               <div class="option">
-                  <button style="padding: 0;" id="draw">
-                    <img src="../images/pen.svg" alt="pen" width="50px" height="50px">
-                  </button>
-                  <button style="padding: 0;" id="erase">
-                    <img src="../images/eraser.png" alt="eraser" width="50px" height="50px">
-                  </button>
-                  <button style="padding: 0;" id="reset">
-                    <img src="../images/reset.png" alt="reset" width="50px" height="50px">
-                  </button>
-                  
-                  <input type="range" value="5" min="1" max="50" step="1" id="weight" 
-    oninput="document.getElementById('output1').value=this.value">
-    <output id="output1"  >5</output>
-                  <button type="submit" id="submit">submit</button>
-
-                  <button type="button" class="close">
-                    <img src="../images/close.png" alt="close" width="50px" height="50px">
-                  </button>
+                <input type="radio" id="draw" name="mode">
+                <label for="draw">ペン</label>
+                <input type="radio" id="erase" name="mode">
+                <label for="erase">消しゴム</label><br>
+                <label for="weight">太さ</label>
+                <input type="number" name="mode" id="weight" value="5" style="max-width: 50px;">
               </div>
               
+              <div>
+                <input type="submit" id="submit" value="submit">
+              </div>
+              <br>
               
               <!-- お絵描きエリアの設定 -->
-              <canvas id="canvas" width="900px" height="450px"></canvas>
+              <canvas id="canvas" height="200" width="500" ></canvas>
             </div>
         </main>
     </body>

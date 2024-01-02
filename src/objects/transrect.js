@@ -22,6 +22,10 @@ class TransRectClass extends ObjectClass {
     // drawメソッドのclash関数の前で呼び出すこと
     setClash(bg) {
         // 白黒のみを考慮
-        this.clashenable = (bg.getRed() == this.red) ? false : true;
+        if (bg.getRed() == this.red && bg.getGreen() == this.green && bg.getBlue() == this.blue) {
+            this.clashenable = false;
+        } else {
+            this.clashenable = true;
+        }
     }
 }

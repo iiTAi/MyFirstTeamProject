@@ -14,7 +14,7 @@ function world0() {
                     new RectClass(10, 1),
                     new RectClass(1, 10),
                     new TransRectClass(1, 5),
-                    new ColorChanger(1, 3),
+                    new ColorChanger(1, 3, "inv"),
                     new ClearLine(1, 3),
                     new GravityButton("floor"),
                     new GravityButton("ceiling"),
@@ -32,7 +32,7 @@ function world0() {
                 obj[2].init(10, 16, 255, 255, 255);
                 obj[3].init(13, 13, 0, 0, 0);  // 長方形を背景と同色で設置した場合のテスト
                 obj[4].init(25, 13, 255, 255, 255);
-                obj[5].init(19, 13, 255, 255, 255);
+                obj[5].init(19, 13, 0, 0, 0);
                 obj[6].init(37, 15, 255, 255, 255);
                 obj[7].init(5, 17, 255, 255, 255);
                 obj[8].init(7, 3, 255, 255, 255);
@@ -79,12 +79,14 @@ function world0() {
                     new RectClass(1, 2),
                     new TransRectClass(1, 8),
                     new TransRectClass(18, 1),
-                    new ColorChanger(1, 18),
-                    new ColorChanger(1, 18),
-                    new ColorChanger(1, 18),
+                    new ColorChanger(1, 16, "red"),
+                    new ColorChanger(1, 16, "green"),
+                    new ColorChanger(1, 16, "blue"),
                     new ClearLine(1, 3),
                     new OneWayWall(1, 3, "right"),
                     new OneWayWall(1, 3, "left"),
+                    new ColorChanger(1, 2, "inv")
+
                 ];
 
                 // 初期化
@@ -92,17 +94,18 @@ function world0() {
                 chr.init(0, 17, 0, 0, 0);
                 obj[0].init(0, 18, 0, 0, 0);
                 obj[1].init(5, 15, 0, 0, 0);
-                obj[2].init(9, 13, 0, 0, 0);
+                obj[2].init(9, 13, 255, 0, 0);
                 obj[3].init(12, 13, 255, 255, 255);
                 obj[4].init(15, 10, 0, 0, 0);
                 obj[5].init(20, 10, 0, 0, 0);
                 obj[6].init(20, 10, 0, 0, 0);
-                obj[7].init(8, 0, 0, 0, 0);
-                obj[8].init(13, 0, 0, 0, 0);
-                obj[9].init(18, 0, 0, 0, 0);
+                obj[7].init(8, 0, 255, 0, 0);
+                obj[8].init(13, 0, 0, 255, 0);
+                obj[9].init(18, 0, 0, 0, 255);
                 obj[10].init(37, 7, 0, 0, 0);
                 obj[11].init(27, 15, 0, 0, 0);
                 obj[12].init(32, 15, 0, 0, 0);
+                obj[13].init(11, 16, 0, 0, 0);
 
                 state = "draw";
 
@@ -117,6 +120,7 @@ function world0() {
                 obj[7].checkClash(chr);
                 obj[8].checkClash(chr);
                 obj[9].checkClash(chr);
+                obj[13].checkClash(chr);
                 clash(chr, obj);
                 chr.checkOffScreen();
                 chr.move();

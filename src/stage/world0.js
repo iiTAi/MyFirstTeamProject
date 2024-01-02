@@ -16,17 +16,14 @@ function world0() {
                     new TransRectClass(1, 5),
                     new ColorChanger(1, 3),
                     new ClearLine(1, 3),
-<<<<<<< HEAD
                     new GravityButton(),
                     new GravityButton(),
-                    new BreakFloar(5,1,10)     //三つ目の引数は壊れる速度
-=======
+                    new BreakFloor(5,1,10),     
                     new GravityButton("floor"),
                     new GravityButton("ceiling"),
                     new OneWayWall(1, 3, "right"),
                     new WarpPortal("floor", 0, 1),
                     new WarpPortal("floor", 1, 0),
->>>>>>> 8931beb385158d893f13853c0c50183151978961
                 ];
 
                 // 初期化
@@ -41,14 +38,10 @@ function world0() {
                 obj[6].init(37, 15, 255, 255, 255);
                 obj[7].init(5, 17, 255, 255, 255);
                 obj[8].init(7, 3, 255, 255, 255);
-<<<<<<< HEAD
-                obj[9].init(17,12,128,128,128); //壊れる床
-=======
-                obj[9].init(32, 15, 255, 255, 255);
+                obj[9].init(17,12,128,128,128);  //壊れる床を灰色にしてテスト
                 obj[10].init(35, 17, 255, 255, 255);
                 obj[11].init(2, 17, 255, 255, 255);
 
->>>>>>> 8931beb385158d893f13853c0c50183151978961
                 state = "draw";
 
             } else if (state == "draw") {
@@ -58,12 +51,9 @@ function world0() {
                 obj[5].checkClash(chr);  // ColorChangerの色変更が動作するか判別
                 obj[7].checkClash(chr);  // GravityButtonの重力反転が動作するか判別
                 obj[8].checkClash(chr);  // GravityButtonの重力反転が動作するか判別
-<<<<<<< HEAD
-                obj[9].checkClash(chr);  //breakfloarの通貨判定
-=======
+                obj[9].checkClash(chr);  //breakfloorの床を壊せるかの判定
                 obj[10].checkClash(chr, obj);  // WarpPortalのワープが動作するか判別
                 obj[11].checkClash(chr, obj);  // WarpPortalのワープが動作するか判別
->>>>>>> 8931beb385158d893f13853c0c50183151978961
                 clash(chr, obj);  // 衝突判定処理
                 chr.checkOffScreen();  // 落下判定と水平方向への衝突処理
 

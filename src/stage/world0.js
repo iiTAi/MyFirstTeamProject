@@ -24,7 +24,7 @@ function world0() {
                     new OneWayWall(1, 3, "right"),
                     new WarpPortal("floor", 0, 1),
                     new WarpPortal("floor", 1, 0),
-                    new BreakFloar(5,1,10)     //三つ目の引数は壊れる速度
+                    
                 ];
 
                 // 初期化
@@ -42,8 +42,6 @@ function world0() {
                 obj[9].init(17,12,128,128,128);  //壊れる床を灰色にしてテスト
                 obj[10].init(35, 17, 255, 255, 255);
                 obj[11].init(2, 17, 255, 255, 255);
-
-                obj[9].init(17,12,128,128,128); //壊れる床
                 state = "draw";
 
             } else if (state == "draw") {

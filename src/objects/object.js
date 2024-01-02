@@ -52,6 +52,9 @@ class ObjectClass {
 
     getClashenable() { return this.clashenable; }
 
+    getRed() { return this.red; }
+    getGreen() { return this.green; }
+    getBlue() { return this.blue; }
     setRGB(red, green, blue) {
         this.red = red;
         this.green = green;

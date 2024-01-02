@@ -14,17 +14,15 @@ function world0() {
                     new RectClass(10, 1),
                     new RectClass(1, 10),
                     new TransRectClass(1, 5),
-                    new ColorChanger(1, 3),
+                    new ColorChanger(1, 3, "inv"),
                     new ClearLine(1, 3),
-                    new GravityButton(),
-                    new GravityButton(),
-                    new BreakFloor(5,1,10),     
                     new GravityButton("floor"),
                     new GravityButton("ceiling"),
                     new OneWayWall(1, 3, "right"),
                     new WarpPortal("floor", 0, 1),
                     new WarpPortal("floor", 1, 0),
-                    
+                    new UnjumpableSign(),
+                    new BreakFloor(5, 1, 10)
                 ];
 
                 // 初期化
@@ -35,13 +33,16 @@ function world0() {
                 obj[2].init(10, 16, 255, 255, 255);
                 obj[3].init(13, 13, 0, 0, 0);  // 長方形を背景と同色で設置した場合のテスト
                 obj[4].init(25, 13, 255, 255, 255);
-                obj[5].init(19, 13, 255, 255, 255);
+                obj[5].init(19, 13, 0, 0, 0);
                 obj[6].init(37, 15, 255, 255, 255);
                 obj[7].init(5, 17, 255, 255, 255);
                 obj[8].init(7, 3, 255, 255, 255);
-                obj[9].init(17,12,128,128,128);  //壊れる床を灰色にしてテスト
+                obj[9].init(32, 15, 255, 255, 255);
                 obj[10].init(35, 17, 255, 255, 255);
                 obj[11].init(2, 17, 255, 255, 255);
+                obj[12].init(1, 17, 255, 255, 255);
+                obj[13].init(17, 12, 128, 128, 128);
+
                 state = "draw";
 
             } else if (state == "draw") {
@@ -51,13 +52,14 @@ function world0() {
                 obj[5].checkClash(chr);  // ColorChangerの色変更が動作するか判別
                 obj[7].checkClash(chr);  // GravityButtonの重力反転が動作するか判別
                 obj[8].checkClash(chr);  // GravityButtonの重力反転が動作するか判別
-                obj[9].checkClash(chr);  //breakfloorの床を壊せるかの判定
+                obj[13].checkClash(chr);  //breakfloorの床を壊せるかの判定
                 obj[10].checkClash(chr, obj);  // WarpPortalのワープが動作するか判別
                 obj[11].checkClash(chr, obj);  // WarpPortalのワープが動作するか判別
-                obj[9].checkClash(chr);  //breakfloarの通貨判定
                 clash(chr, obj);  // 衝突判定処理
                 chr.checkOffScreen();  // 落下判定と水平方向への衝突処理
 
+                chr.setJumpenable(false);  // ジャンプ禁止の設定
+              
                 chr.move();  // 自機の左右移動
                 chr.push();  // 自機の描画
                 pushes(obj);  // obj配列の要素の描画
@@ -68,7 +70,7 @@ function world0() {
                     stage = "1-2";
                     state = "setup";
                 }
-            // ミス時の処理
+                // ミス時の処理
             }
             break;
         }
@@ -83,12 +85,13 @@ function world0() {
                     new RectClass(1, 2),
                     new TransRectClass(1, 8),
                     new TransRectClass(18, 1),
-                    new ColorChanger(1, 18),
-                    new ColorChanger(1, 18),
-                    new ColorChanger(1, 18),
+                    new ColorChanger(1, 16, "red"),
+                    new ColorChanger(1, 16, "green"),
+                    new ColorChanger(1, 16, "blue"),
                     new ClearLine(1, 3),
                     new OneWayWall(1, 3, "right"),
                     new OneWayWall(1, 3, "left"),
+                    new ColorChanger(1, 2, "inv")
                 ];
 
                 // 初期化
@@ -96,17 +99,18 @@ function world0() {
                 chr.init(0, 17, 0, 0, 0);
                 obj[0].init(0, 18, 0, 0, 0);
                 obj[1].init(5, 15, 0, 0, 0);
-                obj[2].init(9, 13, 0, 0, 0);
+                obj[2].init(9, 13, 255, 0, 0);
                 obj[3].init(12, 13, 255, 255, 255);
                 obj[4].init(15, 10, 0, 0, 0);
                 obj[5].init(20, 10, 0, 0, 0);
                 obj[6].init(20, 10, 0, 0, 0);
-                obj[7].init(8, 0, 0, 0, 0);
-                obj[8].init(13, 0, 0, 0, 0);
-                obj[9].init(18, 0, 0, 0, 0);
+                obj[7].init(8, 0, 255, 0, 0);
+                obj[8].init(13, 0, 0, 255, 0);
+                obj[9].init(18, 0, 0, 0, 255);
                 obj[10].init(37, 7, 0, 0, 0);
                 obj[11].init(27, 15, 0, 0, 0);
                 obj[12].init(32, 15, 0, 0, 0);
+                obj[13].init(11, 16, 0, 0, 0);
 
                 state = "draw";
 
@@ -114,13 +118,14 @@ function world0() {
                 bg.push();
                 obj[2].setClash(bg);
                 obj[3].setClash(bg);
-                obj[5].setClash(bg);                
+                obj[5].setClash(bg);
                 obj[6].setClash(bg);
                 obj[11].setClash(chr);
-                obj[12].setClash(chr);                
+                obj[12].setClash(chr);
                 obj[7].checkClash(chr);
                 obj[8].checkClash(chr);
                 obj[9].checkClash(chr);
+                obj[13].checkClash(chr);
                 clash(chr, obj);
                 chr.checkOffScreen();
                 chr.move();
@@ -130,7 +135,7 @@ function world0() {
                     nextstage = "1-1";  // ステージの最後の画面ではnextstageに次のステージを格納
                     state = "clear";  // state"setup"ではなく"clear"を代入
                 }
-                
+
             }
             break;
         }

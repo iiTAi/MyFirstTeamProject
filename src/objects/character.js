@@ -197,6 +197,9 @@ class CharaClass {
     getJumpenable() { return this.jumpenable; }
     setJumpenable(jumpenable) { this.jumpenable = jumpenable; }
 
+    getRed() { return this.red; }
+    getGreen() { return this.green; }
+    getBlue() { return this.blue; }
     setRGB(red, green, blue) {
         this.red = red;
         this.green = green;

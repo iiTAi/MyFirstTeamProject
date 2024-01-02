@@ -24,6 +24,7 @@ function world0() {
                     new OneWayWall(1, 3, "right"),
                     new WarpPortal("floor", 0, 1),
                     new WarpPortal("floor", 1, 0),
+                    new BreakFloar(5,1,10)     //三つ目の引数は壊れる速度
                 ];
 
                 // 初期化
@@ -42,6 +43,7 @@ function world0() {
                 obj[10].init(35, 17, 255, 255, 255);
                 obj[11].init(2, 17, 255, 255, 255);
 
+                obj[9].init(17,12,128,128,128); //壊れる床
                 state = "draw";
 
             } else if (state == "draw") {
@@ -54,6 +56,7 @@ function world0() {
                 obj[9].checkClash(chr);  //breakfloorの床を壊せるかの判定
                 obj[10].checkClash(chr, obj);  // WarpPortalのワープが動作するか判別
                 obj[11].checkClash(chr, obj);  // WarpPortalのワープが動作するか判別
+                obj[9].checkClash(chr);  //breakfloarの通貨判定
                 clash(chr, obj);  // 衝突判定処理
                 chr.checkOffScreen();  // 落下判定と水平方向への衝突処理
 

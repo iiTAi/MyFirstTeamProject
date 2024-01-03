@@ -10,8 +10,8 @@ class OneWayWall extends ObjectClass {
     // 描画メソッド
     push() {
         fill(this.red, this.green, this.blue);
-        if (this.red + this.green + this.blue >= 255) {
-            stroke(0);
+        if (this.red + this.green + this.blue >= 765) {
+            stroke(bg.getRed(), bg.getGreen(), bg.getBlue());
         } else {
             stroke(255);
         }

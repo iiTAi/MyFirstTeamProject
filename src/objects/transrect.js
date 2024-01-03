@@ -21,9 +21,12 @@ class TransRectClass extends ObjectClass {
             else {
                 stroke(bg.getRed(), bg.getGreen(), bg.getBlue());
             }
-        } else {
+        } else if(this.getRed() == bg.getRed() && this.getGreen() == bg.getGreen() && this.getBlue() == bg.getBlue()) {
             stroke(255);
+        } else {
+            stroke(bg.getRed(), bg.getGreen(), bg.getBlue());
         }
+        
         rect(this.x, this.y, this.width, this.height);
         circle(this.x + this.width / 2, this.y + this.height / 2, 30);
     }

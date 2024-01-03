@@ -32,6 +32,7 @@ class ColorChanger extends ObjectClass {
 
         // 衝突時の処理
         if (touch == 4 && !(this.changed)) {
+
             // 背景および物体が白色かどうか判定するための変数の定義
             let bgcolor = bg.getRed() + bg.getGreen() + bg.getBlue();
             let chrcolor = chr.getRed() + chr.getGreen() + chr.getBlue();

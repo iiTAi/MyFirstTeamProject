@@ -22,6 +22,7 @@ function world0() {
                     new WarpPortal("floor", 0, 1),
                     new WarpPortal("floor", 1, 0),
                     new UnjumpableSign(),
+                    new BreakFloor(5, 1, 10)
                 ];
 
                 // 初期化
@@ -40,6 +41,7 @@ function world0() {
                 obj[10].init(35, 17, 255, 255, 255);
                 obj[11].init(2, 17, 255, 255, 255);
                 obj[12].init(1, 17, 255, 255, 255);
+                obj[13].init(17, 12, 128, 128, 128);
 
                 state = "draw";
 
@@ -50,15 +52,19 @@ function world0() {
                 obj[5].checkClash(chr);  // ColorChangerの色変更が動作するか判別
                 obj[7].checkClash(chr);  // GravityButtonの重力反転が動作するか判別
                 obj[8].checkClash(chr);  // GravityButtonの重力反転が動作するか判別
+                obj[13].checkClash(chr);  //breakfloorの床を壊せるかの判定
                 obj[10].checkClash(chr, obj);  // WarpPortalのワープが動作するか判別
                 obj[11].checkClash(chr, obj);  // WarpPortalのワープが動作するか判別
                 clash(chr, obj);  // 衝突判定処理
                 chr.checkOffScreen();  // 落下判定と水平方向への衝突処理
 
                 chr.setJumpenable(false);  // ジャンプ禁止の設定
+              
                 chr.move();  // 自機の左右移動
                 chr.push();  // 自機の描画
                 pushes(obj);  // obj配列の要素の描画
+                
+                
                 // ゴール判定
                 if (obj[6].checkClear(chr)) {
                     stage = "1-2";
@@ -86,7 +92,6 @@ function world0() {
                     new OneWayWall(1, 3, "right"),
                     new OneWayWall(1, 3, "left"),
                     new ColorChanger(1, 2, "inv")
-
                 ];
 
                 // 初期化

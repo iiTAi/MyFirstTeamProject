@@ -40,7 +40,7 @@ document.getElementById("close").addEventListener("click", () => {
 
 window.addEventListener("load", () => {
   const img_holder = document.getElementById("img-holder");
-  axios.get("http://localhost:3000").then((ele) => {
+  axios.get("http://localhost:3000/1-1").then((ele) => {
     url = ele.data.urls;
     url.forEach((element) => {
       let img_element = document.createElement("img");

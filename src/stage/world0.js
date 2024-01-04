@@ -58,6 +58,7 @@ function world0() {
                 chr.checkOffScreen();  // 落下判定と水平方向への衝突処理
 
                 //chr.setJumpenable(false);  // ジャンプ禁止の設定
+                
                 chr.move();  // 自機の左右移動
                 chr.push();  // 自機の描画
                 pushes(obj);  // obj配列の要素の描画

@@ -305,8 +305,8 @@ function world1() {
                 pushes(obj);
                 // ゴール判定
                 if (obj[0].checkClear(chr)) {
-                    stage = "3-2";
-                    state = "setup";
+                    nextstage = "4-1";
+                    state = "clear";
                 }
             }
             break;

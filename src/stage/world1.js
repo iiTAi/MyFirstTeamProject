@@ -316,6 +316,53 @@ function world1() {
                 // インスタンスの更新
                 chr = new CharaClass();
                 bg = new BackGroundClass();
+                obj = [
+                    new ClearLine(1, 2),
+                    new WarpPortal("floor", 0, 1),
+                    new WarpPortal("floor", 1, 0),
+                    new RectClass(10, 3),
+                    new RectClass(10, 3),
+                    new RectClass(14, 2),
+                    new RectClass(1, 1),
+                ];
+
+                // 初期化
+                bg.init();
+                obj[0].init(37, 17, 255, 255, 255);
+                obj[1].init(25, 19, 255, 255, 255);
+                obj[2].init(28, 18, 255, 255, 255);
+                obj[3].init(0, 19, 255, 255, 255);
+                obj[4].init(28, 19, 255, 255, 255);
+                obj[5].init(12, 20, 255, 255, 255);
+                obj[6].init(37, 16, 0, 0, 0);
+
+                // stateの更新
+                state = "draw";
+
+            } else if (state == "draw") {
+                // 背景の描画
+                bg.push();
+                // 各種処理
+                obj[1].checkClash(chr, obj);
+                obj[2].checkClash(chr, obj);
+                chr.move();
+                // 描画
+                chr.push();
+                pushes(obj);
+
+                // ゴール判定
+                if (obj[0].checkClear(chr)) {
+                    stage = "4-2";
+                    state = "setup";
+                }
+            }
+            break;
+        }
+        case "4-2": {
+            if (state == "setup") {
+                // インスタンスの更新
+                chr = new CharaClass();
+                bg = new BackGroundClass();
                 obj = [];
 
                 // 初期化

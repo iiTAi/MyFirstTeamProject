@@ -67,6 +67,8 @@ function draw() {
             break;
         }
         case "world1": {
+            // stage = "3-2"  // 任意のコースのみをテストしたいときに実行
+            world1();
             break;
         }
         case "world2": {
@@ -128,7 +130,7 @@ function draw() {
 /* キーが入力された瞬間のみ呼び出される関数 */
 function keyPressed() {
     if (scene == "title") {
-        scene = "world0";
+        scene = "world1";
     }
     switch (key) {
         case 'w': { chr.jump(gravity); break; }

@@ -6,6 +6,8 @@ function world0() {
         case "1-1": {  // ワールド0のステージ1の1つ目の画面
             if (state == "setup") {
                 // インスタンスの更新
+                // obj配列は先頭にゴールラインとか代入すべき
+                // 
                 chr = new CharaClass();
                 bg = new BackGroundClass();
                 obj = [
@@ -59,7 +61,7 @@ function world0() {
                 chr.checkOffScreen();  // 落下判定と水平方向への衝突処理
 
                 //chr.setJumpenable(false);  // ジャンプ禁止の設定
-              
+
                 chr.move();  // 自機の左右移動
                 chr.push();  // 自機の描画
                 pushes(obj);  // obj配列の要素の描画
@@ -134,6 +136,7 @@ function world0() {
                 if (obj[10].checkClear(chr)) {
                     nextstage = "1-1";  // ステージの最後の画面ではnextstageに次のステージを格納
                     state = "clear";  // state"setup"ではなく"clear"を代入
+                    // クリア時の処理はステージで共通のためmain.jsに記述
                 }
 
             }

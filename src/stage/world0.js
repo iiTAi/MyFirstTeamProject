@@ -6,6 +6,8 @@ function world0() {
         case "1-1": {  // ワールド0のステージ1の1つ目の画面
             if (state == "setup") {
                 // インスタンスの更新
+                // obj配列は先頭にゴールラインとか代入すべき
+                // 
                 chr = new CharaClass();
                 bg = new BackGroundClass();
                 obj = [
@@ -129,6 +131,7 @@ function world0() {
                 if (obj[10].checkClear(chr)) {
                     nextstage = "1-1";  // ステージの最後の画面ではnextstageに次のステージを格納
                     state = "clear";  // state"setup"ではなく"clear"を代入
+                    // クリア時の処理はステージで共通のためmain.jsに記述
                 }
 
             }

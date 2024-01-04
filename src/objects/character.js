@@ -59,6 +59,7 @@ class CharaClass {
         this.x += this.dx;
         this.dy += this.ddy;
         this.dy = (this.dy > 25) ? 25 : this.dy;
+        this.dy = (this.dy < -25) ? -25 : this.dy;
         this.y += this.dy;
 
         // 本体色と縁の色の設定

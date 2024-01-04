@@ -64,20 +64,30 @@ class CharaClass {
         // 本体色と縁の色の設定
         // 縁の色は現状白黒のみに対応(要修正)
         fill(this.red, this.green, this.blue);
-        if (this.red + this.green + this.blue >= 255) {
-            stroke(0);
+        if (this.red + this.green + this.blue >= 765) {
+            stroke(bg.getRed(), bg.getGreen(), bg.getBlue());
         } else {
             stroke(255);
         }
         // 描画
         rect(this.x, this.y, this.width, this.height);
         if (this.dx > 0 || this.dx == 0 && this.facebuf == 0) {
-            line(this.x + 24, this.y + 10, this.x + 24, this.y + 30);
-            line(this.x + 36, this.y + 10, this.x + 36, this.y + 30);
+            if (gravity == 'down') {
+                line(this.x + 24, this.y + 10, this.x + 24, this.y + 30);
+                line(this.x + 36, this.y + 10, this.x + 36, this.y + 30);
+            } else if (gravity == 'up') {
+                line(this.x + 24, this.y + 20, this.x + 24, this.y + 40);
+                line(this.x + 36, this.y + 20, this.x + 36, this.y + 40);
+            }
             this.facebuf = 0;
         } else if (this.dx < 0 || this.dx == 0 && this.facebuf == 1) {
-            line(this.x + 13, this.y + 10, this.x + 13, this.y + 30);
-            line(this.x + 25, this.y + 10, this.x + 25, this.y + 30);
+            if (gravity == 'down') {
+                line(this.x + 13, this.y + 10, this.x + 13, this.y + 30);
+                line(this.x + 25, this.y + 10, this.x + 25, this.y + 30);
+            } else if (gravity == 'up') {
+                line(this.x + 13, this.y + 20, this.x + 13, this.y + 40);
+                line(this.x + 25, this.y + 20, this.x + 25, this.y + 40);
+            }
             this.facebuf = 1;
         }
     }
@@ -142,6 +152,25 @@ class CharaClass {
         }
     }
 
+    // 落下判定と水平方向の衝突判定メソッド
+    // ループの度呼び出される
+    checkOffScreen() {
+        // 水平方向の衝突判定
+        if (this.x < 9) {
+            this.dx = 0;
+            this.x = 9;
+        } else if (this.x > 1859) {
+            this.dx = 0;
+            this.x = 1859;
+        }
+
+        // 落下判定
+        // 自機が画面外へ出た瞬間にミスとする
+        if (this.y < -49 || this.y > 1079) {
+            state = "retry";
+        }
+    }
+
     // 各種アクセッサ
     getX() { return this.x; }
     setX(x) { this.x = x; }
@@ -168,6 +197,9 @@ class CharaClass {
     getJumpenable() { return this.jumpenable; }
     setJumpenable(jumpenable) { this.jumpenable = jumpenable; }
 
+    getRed() { return this.red; }
+    getGreen() { return this.green; }
+    getBlue() { return this.blue; }
     setRGB(red, green, blue) {
         this.red = red;
         this.green = green;

@@ -40,7 +40,10 @@ class ObjectClass {
 
     // 各種アクセッサ
     getX() { return this.x; }
+    setX(x) { this.x = x; }
+
     getY() { return this.y; }
+    setY(y) { this.y = y; }
 
     getWidth() { return this.width; }
     getHeight() { return this.height; }
@@ -49,6 +52,9 @@ class ObjectClass {
 
     getClashenable() { return this.clashenable; }
 
+    getRed() { return this.red; }
+    getGreen() { return this.green; }
+    getBlue() { return this.blue; }
     setRGB(red, green, blue) {
         this.red = red;
         this.green = green;

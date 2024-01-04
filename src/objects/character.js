@@ -64,8 +64,8 @@ class CharaClass {
         // 本体色と縁の色の設定
         // 縁の色は現状白黒のみに対応(要修正)
         fill(this.red, this.green, this.blue);
-        if (this.red + this.green + this.blue >= 255) {
-            stroke(0);
+        if (this.red + this.green + this.blue >= 765) {
+            stroke(bg.getRed(), bg.getGreen(), bg.getBlue());
         } else {
             stroke(255);
         }

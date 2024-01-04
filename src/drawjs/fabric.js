@@ -20,41 +20,23 @@ document.getElementById("weight").addEventListener("change", (event) => {
 });
 
 document.getElementById("submit").addEventListener("click", () => {
+  canvas.backgroundColor = "white";
   const base64 = canvas.toDataURL({
     format: "png",
   });
   const formData = new FormData();
   formData.append("file", base64);
-  axios.post("http://localhost:3000", { base: base64 });
+  axios.post("http://localhost:3000/" + stage, { base: base64 });
   // document.getElementById("downloadPng").classList.toggle("none");
   setTimeout(() => {
+    canvas.clear();
     document.getElementById("canv-back").classList.toggle("none");
   }, 300);
+  reloadImg(stage);
 });
 document.getElementById("reset").addEventListener("click", () => {
   canvas.clear();
 });
 document.getElementById("close").addEventListener("click", () => {
   document.getElementById("canv-back").classList.add("none");
-});
-
-window.addEventListener("load", () => {
-  const img_holder = document.getElementById("img-holder");
-  axios.get("http://localhost:3000/1-1").then((ele) => {
-    url = ele.data.urls;
-    url.forEach((element) => {
-      let img_element = document.createElement("img");
-      img_element.src = element; // 画像パス
-      img_element.width = 200; // 横サイズ（px）
-      img_element.height = 100;
-      img_element.style.position = "absolute";
-      let x = Math.random() * 1000 + 100;
-      let y = Math.random() * 500 + 100;
-      img_element.style.top = y;
-      img_element.style.left = -x;
-      img_element.style.zIndex = 5;
-
-      img_holder.appendChild(img_element);
-    });
-  });
 });

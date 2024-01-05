@@ -324,18 +324,20 @@ function world1() {
                     new RectClass(10, 3),
                     new RectClass(14, 2),
                     new RectClass(1, 1),
+                    new UnjumpableSign()
                 ];
 
                 // 初期化
-                bg.init();
+                bg.setRGB(0, 0, 0);
+                chr.init(0, 18, 255, 255, 255);
                 obj[0].init(37, 17, 255, 255, 255);
                 obj[1].init(25, 19, 255, 255, 255);
                 obj[2].init(28, 18, 255, 255, 255);
                 obj[3].init(0, 19, 255, 255, 255);
                 obj[4].init(28, 19, 255, 255, 255);
                 obj[5].init(12, 20, 255, 255, 255);
-                obj[6].init(37, 16, 0, 0, 0);
-
+                obj[6].init(37, 16, 255, 255, 255);
+                obj[7].init(2, 18, 255, 255, 255);
                 // stateの更新
                 state = "draw";
 
@@ -345,6 +347,9 @@ function world1() {
                 // 各種処理
                 obj[1].checkClash(chr, obj);
                 obj[2].checkClash(chr, obj);
+                clash(chr, obj);
+                chr.checkOffScreen();
+                chr.setJumpenable(false);
                 chr.move();
                 // 描画
                 chr.push();

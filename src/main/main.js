@@ -44,6 +44,7 @@ function setup() {
     obj_retry[4].init(13, 13, 255, 255, 255);
     obj_retry[5].init(7, 7, 255, 255, 255);
     obj_retry[6].init(11, 13, 255, 255, 255);
+    stage = "4-1";  // 任意のコースからテストしたいときに実行
 }
 
 /* ループ */
@@ -67,7 +68,7 @@ function draw() {
             break;
         }
         case "world1": {
-            // stage = "3-2"  // 任意のコースのみをテストしたいときに実行
+            //stage = "4-1";  // 任意のコースのみをテストしたいときに実行
             world1();
             break;
         }

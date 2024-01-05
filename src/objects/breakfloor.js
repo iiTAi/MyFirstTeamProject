@@ -15,13 +15,13 @@ class BreakFloor extends ObjectClass{
         noStroke();
         rect(this.x, this.y, this.width, this.height);
         }
-        //壊れたときは透過できるようにする。
+        //壊れたときは背景と同化できるようにする。
         else if(this.Broken){
             if(bg.getRed() == 0){
-                fill(255,255,255,0);
+                fill(255,255,255);
                 rect(this.x,this.y,this.width,this.height);
             }else if(bg.getRed() == 255){
-                fill(0,0,0,0);
+                fill(0,0,0);
                 rect(this.x,this.y,this.width,this.height);
             }
         }
@@ -41,8 +41,7 @@ class BreakFloor extends ObjectClass{
         if (touch == 4 && !(this.changed) && chr.getDY() >= this.BreakDy) {
                 this.Broken = true
                 this.changed = true;
-                this.width = 0;
-                this.height = 0;     //物体としての物理的性質をなくす
+                this.clashenable = false;
             } else {
                 this.changed = false; //
             }

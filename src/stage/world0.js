@@ -22,8 +22,9 @@ function world0() {
                     new WarpPortal("floor", 0, 1),
                     new WarpPortal("floor", 1, 0),
                     new UnjumpableSign(),
-                    new BreakFloor(5, 1, 10)
+                    new BreakFloor(5, 1, 10),
                 ];
+                Avatar = new MakeAvatar();       //分身機能の導入(pushを使わないためobjとは別に)
 
                 // 初期化
                 bg.setRGB(0, 0, 0);
@@ -42,7 +43,7 @@ function world0() {
                 obj[11].init(2, 17, 255, 255, 255);
                 obj[12].init(1, 17, 255, 255, 255);
                 obj[13].init(17, 12, 128, 128, 128);
-
+                Avatar.init(1, 1, 128, 128, 128);
                 state = "draw";
 
             } else if (state == "draw") {
@@ -55,6 +56,7 @@ function world0() {
                 obj[13].checkClash(chr);  //breakfloorの床を壊せるかの判定
                 obj[10].checkClash(chr, obj);  // WarpPortalのワープが動作するか判別
                 obj[11].checkClash(chr, obj);  // WarpPortalのワープが動作するか判別
+                Avatar.CheckAvatar();     //MakeAvatarの分身生成済かの確認
                 clash(chr, obj);  // 衝突判定処理
                 chr.checkOffScreen();  // 落下判定と水平方向への衝突処理
 
@@ -64,7 +66,11 @@ function world0() {
                 chr.push();  // 自機の描画
                 pushes(obj);  // obj配列の要素の描画
                 
-                
+                //分身の生成および削除(キーは自由に設定可)
+                if( key == "h" ){
+                    createAvatar();
+                }
+
                 // ゴール判定
                 if (obj[6].checkClear(chr)) {
                     stage = "1-2";

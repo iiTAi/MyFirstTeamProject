@@ -81,3 +81,19 @@ function systemCChange(obj_retry, red, green, blue) {
         }
     }
 }
+
+// キャラクターのスタート地点を設定するメソッド
+function setStartPoint(chr) {
+    if (flag[1] == -1) {
+        return;
+    }
+    for (let i = 0; i < obj.length; i++) {
+        if (obj[i].moveUniID == flag[1]) {
+            chr.setX(obj[i].getX());
+            chr.setY(obj[i].getY() - 50 + obj[i].getHeight());
+            obj[i].movable = false;
+            flag[1] = -1;
+            break;
+        }
+    }
+}

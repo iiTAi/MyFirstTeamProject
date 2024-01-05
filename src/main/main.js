@@ -10,7 +10,8 @@ let gravity = "down";  // 重力の向きを制御する変数
 /* 各種フラグ */
 // 必要な時に必要な数だけ使うこと
 let flag = [
-    false
+    false,
+    -1   // ステージを移動するときにキャラクターのスタート地点を決めるための変数, -1のときはそのステージの初期地点
 ]
 
 /* インスタンスの生成 */
@@ -154,6 +155,7 @@ function keyPressed() {
                 state = "setup";
                 gravity = "down";
                 flag[0] = false;
+                flag[1] = -1;
             // ポーズ画面からリスタートする処理
             } else if (state == "pose") {
                 state = "setup";
@@ -166,6 +168,7 @@ function keyPressed() {
                 state = "setup";
                 gravity = "down";
                 flag[0] = false;
+                flag[1] = -1;
             }
             break;
         }

@@ -1,0 +1,116 @@
+html{
+    
+    margin: 0;
+    padding: 0;
+    /* overflow: hidden; */
+}
+body{
+    transform-origin: top left;
+    transform: scale(0.8,0.8);
+    margin: 0;
+    padding: 0;
+    /* overflow: hidden; */
+}
+#defaultCanvas0{
+    transform-origin: top left;
+    transform: scale(0.8,0.8);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+main{
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    padding: 0;
+    margin: 0;
+}
+#canv-back{
+    margin: 0 auto;
+    max-width: 900px;
+    background-color: white;
+    border: 2px black solid;
+    z-index: 6;
+}
+.option{
+    position: relative;
+    width: calc(100%);
+    
+    font-size: 2em;
+    display: flex;
+    justify-content: left;
+
+}
+.option button{
+    margin: 0;
+    border: none;
+    cursor: pointer;
+}
+
+.option img{
+    border: none;
+}
+#submit{
+    font-size: 1em;
+    margin:0;
+    margin-left: 0.5em;
+}
+#close{
+    padding:0;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.left-content{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+.right-content{
+    display: flex;
+    justify-content: right;
+}
+#canvas{
+    border: 2px black solid;
+}
+.cover{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+}
+
+@keyframes bubleup {
+    
+    to{
+        left: 100vw
+    }
+}
+
+#img-holder{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0.5;
+    z-index: 5;
+    user-select: none;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.none ,.none *{
+    user-select: none;
+    pointer-events: none;
+    opacity: 0;
+}
+#img-holder img{
+    border: 1px black solid;
+    animation: bubleup 10s 1s linear infinite;
+    animation-fill-mode:backwards;
+    overflow:hidden;
+}

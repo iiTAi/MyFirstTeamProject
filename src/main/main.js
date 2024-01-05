@@ -164,6 +164,7 @@ function keyPressed() {
         state = "setup";
         gravity = "down";
         flag[0] = false;
+        flag[1] = -1;
         // ポーズ画面からリスタートする処理
       } else if (state == "pose") {
         state = "setup";
@@ -176,6 +177,7 @@ function keyPressed() {
         state = "setup";
         gravity = "down";
         flag[0] = false;
+        flag[1] = -1;
       }
       break;
     }

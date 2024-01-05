@@ -32,6 +32,7 @@ function world1() {
         obj[7].init(28, 15, 255, 255, 255);
         obj[8].init(30, 13, 255, 255, 255);
         obj[9].init(32, 10, 255, 255, 255);
+        setStartPoint(chr);
         // stateの更新
         state = "draw";
       } else if (state == "draw") {
@@ -68,7 +69,7 @@ function world1() {
         chr = new CharaClass();
         bg = new BackGroundClass();
         obj = [
-          new ClearLine(1, 2),
+          new ClearLine(1, 2, 0, 1),
           new GravityButton("floor"),
           new GravityButton("ceiling"),
           new RectClass(2, 2),
@@ -93,6 +94,8 @@ function world1() {
         obj[7].init(0, -1, 255, 255, 255);
         obj[8].init(28, 19, 255, 255, 255);
         obj[9].init(37, 16, 255, 255, 255);
+        // スタート地点の設定
+        setStartPoint(chr);
         // stateの更新
         state = "draw";
       } else if (state == "draw") {
@@ -142,6 +145,7 @@ function world1() {
           new RectClass(1, 1),
           new RectClass(6, 3),
           new RectClass(6, 3),
+          new ClearLine(1, 2, 1, 0),
         ];
 
         // 初期化
@@ -161,6 +165,9 @@ function world1() {
         obj[11].init(37, 16, 255, 255, 255);
         obj[12].init(0, 19, 255, 255, 255);
         obj[13].init(32, 19, 255, 255, 255);
+        obj[14].init(0, 17, 255, 255, 255);
+        // スタート地点の設定
+        setStartPoint(chr);
 
         // stateの更新
         state = "draw";
@@ -187,6 +194,11 @@ function world1() {
           getStageImg(stage);
           isImgLoad = true;
         }
+        // 前画面に戻る処理
+        if (obj[14].checkBack(chr)) {
+          stage = "2-1";
+          state = "setup";
+        }
         // ゴール判定
         if (obj[0].checkClear(chr)) {
           nextstage = "3-1";
@@ -203,7 +215,7 @@ function world1() {
         chr = new CharaClass();
         bg = new BackGroundClass();
         obj = [
-          new ClearLine(1, 2),
+          new ClearLine(1, 2, 0, 1),
           new WarpPortal("floor", 0, 1),
           new WarpPortal("floor", 1, 0),
           new RectClass(1, 1),
@@ -226,6 +238,8 @@ function world1() {
         obj[6].init(18, -1, 255, 255, 255);
         obj[7].init(13, 16, 255, 255, 255);
         obj[8].init(22, 16, 255, 255, 255);
+        // スタート地点の設定
+        setStartPoint(chr);
         // stateの更新
         state = "draw";
       } else if (state == "draw") {
@@ -279,6 +293,7 @@ function world1() {
           new RectClass(2, 17),
           new RectClass(1, 1),
           new RectClass(1, 1),
+          new ClearLine(1, 2, 1, 0),
         ];
 
         // 初期化
@@ -302,6 +317,7 @@ function world1() {
         obj[15].init(18, 2, 255, 255, 255);
         obj[16].init(0, 16, 255, 255, 255);
         obj[17].init(37, 16, 255, 255, 255);
+        obj[18].init(0, 17, 255, 255, 255);
 
         // stateの更新
         state = "draw";
@@ -330,6 +346,11 @@ function world1() {
         if (!isImgLoad) {
           getStageImg(stage);
           isImgLoad = true;
+        }
+        // 前画面に戻る処理
+        if (obj[18].checkBack(chr)) {
+          stage = "3-1";
+          state = "setup";
         }
         // ゴール判定
         if (obj[0].checkClear(chr)) {

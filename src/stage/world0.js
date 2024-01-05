@@ -17,7 +17,7 @@ function world0() {
                     new RectClass(1, 10),
                     new TransRectClass(1, 5),
                     new ColorChanger(1, 3, "inv"),
-                    new ClearLine(1, 3),
+                    new ClearLine(1, 3, 1, 2),
                     new GravityButton("floor"),
                     new GravityButton("ceiling"),
                     new OneWayWall(1, 3, "right"),
@@ -44,6 +44,8 @@ function world0() {
                 obj[11].init(2, 17, 255, 255, 255);
                 obj[12].init(1, 17, 255, 255, 255);
                 obj[13].init(17, 12, 128, 128, 128);
+
+                setStartPoint(chr);  // キャラクターのスタート地点を設定
 
                 state = "draw";
 
@@ -93,7 +95,8 @@ function world0() {
                     new ClearLine(1, 3),
                     new OneWayWall(1, 3, "right"),
                     new OneWayWall(1, 3, "left"),
-                    new ColorChanger(1, 2, "inv")
+                    new ColorChanger(1, 2, "inv"),
+                    new ClearLine(1, 3, 2, 1),
                 ];
 
                 // 初期化
@@ -113,6 +116,9 @@ function world0() {
                 obj[11].init(27, 15, 0, 0, 0);
                 obj[12].init(32, 15, 0, 0, 0);
                 obj[13].init(11, 16, 0, 0, 0);
+                obj[14].init(0, 15, 0, 0, 0);
+
+                setStartPoint(chr);  // キャラクターのスタート地点を設定
 
                 state = "draw";
 
@@ -137,6 +143,12 @@ function world0() {
                     nextstage = "1-1";  // ステージの最後の画面ではnextstageに次のステージを格納
                     state = "clear";  // state"setup"ではなく"clear"を代入
                     // クリア時の処理はステージで共通のためmain.jsに記述
+                }
+
+                // 画面戻るときの処理
+                if (obj[14].checkBack(chr)) {
+                    stage = "1-1";
+                    state = "setup";
                 }
 
             }

@@ -29,7 +29,6 @@ class TransRectClass extends ObjectClass {
     // 当たり判定の設定
     // drawメソッドのclash関数の前で呼び出すこと
     setClash(bg) {
-        // 白黒のみを考慮
         if (bg.getRed() == this.red && bg.getGreen() == this.green && bg.getBlue() == this.blue) {
             this.clashenable = false;
         } else {

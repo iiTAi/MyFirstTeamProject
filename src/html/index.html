@@ -1,68 +1,76 @@
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/addons/p5.sound.min.js"></script>
-        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/gh/molleindustria/p5.play/lib/p5.play.js"></script>
-        <script src="../objects/character.js"></script>
-        <script src="../objects/background.js"></script>
-        <script src="../objects/object.js"></script>
-        <script src="../objects/transrect.js"></script>
-        <script src="../objects/rect.js"></script>
-        <script src="../objects/colorchanger.js"></script>
-        <script src="../objects/clearline.js"></script>
-        <script src="../objects/gravitybutton.js"></script>
-        <script src="../objects/breakfloor.js"></script>
-        <script src="../objects/onewaywall.js"></script>
-        <script src="../objects/warpportal.js"></script>
-        <script src="../objects/unjumpablesign.js"></script>
-        <script src="../objects/textclass.js"></script>        
-       
-        
-        <link rel="stylesheet" href="../css/style.css" type="text/css">
-    </head>
 
-    <body>
-        <main>
-            <div id="img-holder">
+<head>
+  <meta charset="UTF-8">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/addons/p5.sound.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/molleindustria/p5.play/lib/p5.play.js"></script>
+  <script src="../objects/character.js"></script>
+  <script src="../objects/background.js"></script>
+  <script src="../objects/object.js"></script>
+  <script src="../objects/transrect.js"></script>
+  <script src="../objects/rect.js"></script>
+  <script src="../objects/colorchanger.js"></script>
+  <script src="../objects/clearline.js"></script>
+  <script src="../objects/gravitybutton.js"></script>
+  <script src="../objects/breakfloor.js"></script>
+  <script src="../objects/onewaywall.js"></script>
+  <script src="../objects/warpportal.js"></script>
+  <script src="../objects/unjumpablesign.js"></script>
+  <script src="../objects/textclass.js"></script>
 
-            </div>
-            <div id="canv-back" class="none">
-        
-              <div class="option">
-                <button style="padding: 0;" id="draw">
-                  <img src="../images/pen.png" alt="pen" width="50px" height="50px">
-                </button>
-                <button style="padding: 0;" id="erase">
-                  <img src="../images/eraser.png" alt="eraser" width="50px" height="50px">
-                </button>
-                <button style="padding: 0;" id="reset">
-                  <img src="../images/reset.png" alt="reset" width="50px" height="50px">
-                </button>
-                
-                <input type="range" value="5" min="1" max="50" step="1" id="weight" 
-  oninput="document.getElementById('output1').value=this.value">
-  <output id="output1"  >5</output>
-                <button type="submit" id="submit">submit</button>
 
-                <button type="button" id="close">
-                  <img src="../images/close.png" alt="close" width="50px" height="50px">
-                </button>
-            </div>
-              
-              <!-- お絵描きエリアの設定 -->
-              <canvas id="canvas" height="450" width="900" ></canvas>
-            </div>
-        </main>
-    </body>
-     <script src="../main/function.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/4.5.0/fabric.min.js"></script>
-    <script src="../stage/world0.js"></script>
-    <script src="../stage/world1.js"></script>
-    <script src="../stage/world2.js"></script>
-    <script src="../stage/world3.js"></script>
-    <script src="../stage/world4.js"></script>
-    <script src="../main/main.js"></script>
-    <script src="../drawjs/fabric.js"></script>
+  <link rel="stylesheet" href="../css/style.css" type="text/css">
+</head>
+
+<body>
+  <main>
+    <div id="img-holder">
+
+    </div>
+    <div id="canv-back" class="none">
+
+      <div class="option">
+        <button style="padding: 0;" id="draw">
+          <img src="../images/pen.png" alt="pen" width="50px" height="50px">
+        </button>
+        <button style="padding: 0;" id="erase">
+          <img src="../images/eraser.png" alt="eraser" width="50px" height="50px">
+        </button>
+        <button style="padding: 0;" id="reset">
+          <img src="../images/reset.png" alt="reset" width="50px" height="50px">
+        </button>
+
+        <input type="range" value="5" min="1" max="50" step="1" id="weight"
+          oninput="document.getElementById('output1').value=this.value">
+        <output id="output1">5</output>
+        <button type="submit" id="submit">submit</button>
+        <button type="button" id="undo">
+          <img src="../images/undo.png" alt="やり直し" width="50px" height="50px">
+        </button>
+        <button type="button" id="redo">
+          <img src="../images//redo.png" alt="元に戻す" width="50px" height="50px">
+        </button>
+
+        <button type="button" id="close">
+          <img src="../images/close.png" alt="close" width="50px" height="50px">
+        </button>
+      </div>
+
+      <!-- お絵描きエリアの設定 -->
+      <canvas id="canvas" height="450" width="900"></canvas>
+    </div>
+  </main>
+</body>
+<script src="../main/function.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/4.5.0/fabric.min.js"></script>
+<script src="../stage/world0.js"></script>
+<script src="../stage/world1.js"></script>
+<script src="../stage/world2.js"></script>
+<script src="../stage/world3.js"></script>
+<script src="../stage/world4.js"></script>
+<script src="../main/main.js"></script>
+<script src="../drawjs/fabric.js"></script>
+
 </html>

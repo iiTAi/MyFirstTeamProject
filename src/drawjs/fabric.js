@@ -66,19 +66,23 @@ document.getElementById("weight").addEventListener("change", (event) => {
 });
 
 document.getElementById("submit").addEventListener("click", () => {
-  canvas.backgroundColor = "white";
-  const base64 = canvas.toDataURL({
-    format: "png",
-  });
-  const formData = new FormData();
-  formData.append("file", base64);
-  axios.post("http://localhost:3000/" + stage, { base: base64 });
-  // document.getElementById("downloadPng").classList.toggle("none");
-  setTimeout(() => {
-    canvas.clear();
-    document.getElementById("canv-back").classList.toggle("none");
-  }, 300);
-  reloadImg(stage);
+  if(Undo_register.length!=0){
+    console.log("submit")
+    canvas.backgroundColor = "white";
+    const base64 = canvas.toDataURL({
+      format: "png",
+    });
+    const formData = new FormData();
+    formData.append("file", base64);
+    axios.post("http://localhost:3000/" + stage, { base: base64 });
+    // document.getElementById("downloadPng").classList.toggle("none");
+    setTimeout(() => {
+      canvas.clear();
+      document.getElementById("canv-back").classList.toggle("none");
+    }, 300);
+    reloadImg(stage);
+
+  }
 });
 document.getElementById("reset").addEventListener("click", () => {
   canvas.clear();

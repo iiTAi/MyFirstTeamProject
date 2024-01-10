@@ -20,7 +20,7 @@ function world0() {
                     new ClearLine(1, 3, 1, 2),
                     new GravityButton("floor"),
                     new GravityButton("ceiling"),
-                    new OneWayWall(1, 3, "right"),
+                    new OneWayWall(1, 4, "right"),
                     new WarpPortal("floor", 0, 1),
                     new WarpPortal("floor", 1, 0),
                     new UnjumpableSign(),
@@ -39,7 +39,7 @@ function world0() {
                 obj[6].init(37, 15, 255, 255, 255);
                 obj[7].init(5, 17, 255, 255, 255);
                 obj[8].init(7, 3, 255, 255, 255);
-                obj[9].init(32, 15, 255, 255, 255);
+                obj[9].init(32, 14, 255, 255, 255);
                 obj[10].init(35, 17, 255, 255, 255);
                 obj[11].init(2, 17, 255, 255, 255);
                 obj[12].init(1, 17, 255, 255, 255);

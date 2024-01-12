@@ -21,5 +21,9 @@ class TextClass extends ObjectClass {
             noStroke();
         }
         text(this.str, this.x, this.y + this.size);
+        if (this.red + this.green + this.blue != 765) {
+            fill(0, 0, 0, 60);
+            text(this.str, this.x, this.y + this.size);
+        }
     }
 }

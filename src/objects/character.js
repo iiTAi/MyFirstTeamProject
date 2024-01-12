@@ -91,6 +91,10 @@ class CharaClass {
             }
             this.facebuf = 1;
         }
+        if (this.red + this.green + this.blue != 765) {
+            fill(0, 0, 0, 60);
+            rect(this.x, this.y, this.width, this.height);
+        }
     }
 
     // ジャンプメソッド

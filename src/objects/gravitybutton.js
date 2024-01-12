@@ -32,6 +32,10 @@ class GravityButton extends ObjectClass {
         line(this.x + this.width * 2 / 3, this.y, this.x + this.width * 2 / 3, this.y + this.height);
         line(this.x + this.width * 2 / 3, this.y, this.x + this.width * 2 / 3 - 6, this.y + 5);
         line(this.x + this.width * 2 / 3, this.y, this.x + this.width * 2 / 3 + 6, this.y + 5);
+        if (this.red + this.green + this.blue != 765) {
+            fill(0, 0, 0, 60);
+            rect(this.x, this.y, this.width, this.height);
+        }
     }
 
     // 重力反転が発生するかどうかを判定するメソッド

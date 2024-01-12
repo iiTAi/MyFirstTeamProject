@@ -25,6 +25,9 @@ class UnjumpableSign extends ObjectClass {
 
         line(this.x + 64, this.y - 32.5, this.x + 30, this.y + 1.5);
         line(this.x + 70, this.y - 26.5, this.x + 36, this.y + 7.5);
-
+        if (this.red + this.green + this.blue != 765) {
+            fill(0, 0, 0, 60);
+            rect(this.x, this.y, this.width, this.height);
+        }
     }
 }

@@ -9,6 +9,10 @@ class BackGroundClass {
     // 描画
     push() {
         background(this.red, this.green, this.blue);
+        if (this.red + this.green + this.blue != 765) {
+            fill(0, 0, 0, 60);
+            rect(0, 0, 1920, 1080);
+        }
         if (this.red == 0) {
             fill(255);
         } else {

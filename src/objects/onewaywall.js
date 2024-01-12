@@ -46,7 +46,7 @@ class OneWayWall extends ObjectClass {
             if (this.direction == "right" && chr.getDX() < 0) {
                 chr.setDX(0);
                 chr.setX(chr.getX() + 1);
-            } else if (this.direction == "right" && chr.getDX() < 0) {
+            } else if (this.direction == "left" && chr.getDX() > 0) {
                 chr.setDX(0);
                 chr.setX(chr.getX() - 1);
 

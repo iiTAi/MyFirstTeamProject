@@ -534,15 +534,13 @@ function world1() {
             chr.push();
             pushes(obj);
             // images load from firestrage
-            /*
             if (!isImgLoad) {
               getStageImg(stage);
               isImgLoad = true;
             }
-            */
             // ゴール判定
             if (obj[1].checkBack(chr)) {
-              stage = "2-1";
+              stage = "4-1";
               state = "setup";
             }
             if (obj[0].checkClear(chr)) {

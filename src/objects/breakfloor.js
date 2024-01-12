@@ -31,6 +31,10 @@ class BreakFloor extends ObjectClass{
                     line(this.x + 100/3 - 5 + i * 50, this.y + 50 + j * 50 - 20, this.x + 100/3 - 5 + i * 50 + 10, this.y + 50 + j * 50 - 30);
                 }
             }
+            if (this.red + this.green + this.blue != 765) {
+                fill(0, 0, 0, 60);
+                rect(this.x, this.y, this.width, this.height);
+            }    
         }
         // 壊れたときは透明になる
         else if(this.Broken){

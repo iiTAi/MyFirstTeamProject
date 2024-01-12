@@ -29,6 +29,10 @@ class OneWayWall extends ObjectClass {
                 line(this.x + this.width / 4, this.y + 25 + i * 50, this.x + this.width / 4 + 10, this.y + 25 + i * 50 + 10);
             }
         }
+        if (this.red + this.green + this.blue != 765) {
+            fill(0, 0, 0, 60);
+            rect(this.x, this.y, this.width, this.height);
+        }
     }
 
     // 当たり判定の設定

@@ -14,5 +14,9 @@ class RectClass extends ObjectClass {
             stroke(255);
         }
         rect(this.x, this.y, this.width, this.height);
+        if (this.red + this.green + this.blue != 765) {
+            fill(0, 0, 0, 60);
+            rect(this.x, this.y, this.width, this.height);
+        }
     }
 }

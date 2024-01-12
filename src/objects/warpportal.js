@@ -36,6 +36,10 @@ class WarpPortal extends ObjectClass {
         arc(this.x + this.width / 2 + 8, this.y + this.height / 2, this.width * 5/8, this.height * 1.2, PI * 11/12, PI * 15/14)
 
         circle(this.x + this.width / 2, this.y + this.height / 2, 3);
+        if (this.red + this.green + this.blue != 765) {
+            fill(0, 0, 0, 60);
+            rect(this.x, this.y, this.width, this.height);
+        }
     }
 
     // ワープが発生するかどうかを判定するメソッド

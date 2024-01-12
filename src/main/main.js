@@ -2,7 +2,7 @@
 
 /* 変数の定義 */
 let scene = "title"; // 場面を制御する変数
-let stage = "4-2"; // 実行するステージを制御する変数
+let stage = "4-1"; // 実行するステージを制御する変数
 let nextstage = null; // 次のステージを一時的に保持する変数
 let state = "setup"; // 各ステージでの初期化とループを制御する変数
 let gravity = "down"; // 重力の向きを制御する変数

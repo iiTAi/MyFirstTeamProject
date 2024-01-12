@@ -198,6 +198,8 @@ function world1() {
         if (obj[14].checkBack(chr)) {
           stage = "2-1";
           state = "setup";
+          isImgLoad = false;
+          deleteStageImg();
         }
         // ゴール判定
         if (obj[0].checkClear(chr)) {
@@ -351,6 +353,8 @@ function world1() {
         if (obj[18].checkBack(chr)) {
           stage = "3-1";
           state = "setup";
+          isImgLoad = false;
+          deleteStageImg();
         }
         // ゴール判定
         if (obj[0].checkClear(chr)) {
@@ -368,7 +372,7 @@ function world1() {
             chr = new CharaClass();
             bg = new BackGroundClass();
             obj = [
-                new ClearLine(1, 2),
+                new ClearLine(1, 2, 0, 1),
                 new WarpPortal("floor", 0, 1),
                 new WarpPortal("floor", 1, 0),
                 new RectClass(10, 3),
@@ -376,7 +380,6 @@ function world1() {
                 new RectClass(14, 2),
                 new RectClass(1, 1),
                 new UnjumpableSign(),
-                new ClearLine(1, 2, 0, 1),
             ];
 
             // 初期化
@@ -390,6 +393,8 @@ function world1() {
             obj[5].init(12, 20, 255, 255, 255);
             obj[6].init(37, 16, 255, 255, 255);
             obj[7].init(2, 18, 255, 255, 255);
+            // スタート地点の設定
+            setStartPoint(chr);
             // stateの更新
             state = "draw";
 
@@ -415,6 +420,8 @@ function world1() {
             if (obj[0].checkClear(chr)) {
                 stage = "4-2";
                 state = "setup";
+                isImgLoad = false;
+                deleteStageImg();
             }
         }
         break;
@@ -500,6 +507,8 @@ function world1() {
             obj[28].init(24, 2, 255, 255, 255);
             obj[29].init(0, 11, 255, 255, 255);
             obj[30].init(36, 16, 255, 255, 255);
+            // スタート地点の設定
+            setStartPoint(chr);
             // stateの更新
             state = "draw";
 
@@ -542,10 +551,14 @@ function world1() {
             if (obj[1].checkBack(chr)) {
               stage = "4-1";
               state = "setup";
+              isImgLoad = false;
+              deleteStageImg();
             }
             if (obj[0].checkClear(chr)) {
               nextstage = "5-1";
               state = "clear";
+              isImgLoad = false;
+              deleteStageImg();
             }
         }
         break;

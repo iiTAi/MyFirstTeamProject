@@ -19,7 +19,7 @@ let flag = [
 var chr = new CharaClass();
 var bg = new BackGroundClass();
 var obj = [];
-var obj_retry = [
+var obj_text = [
   new TextClass("MISS", 300, false),
   new TextClass("RETRY: PRESS R", 100, false),
   new TextClass("POSE", 100, false),
@@ -27,13 +27,13 @@ var obj_retry = [
   new TextClass("NEXT:  PRESS R", 100, false),
   new TextClass("VividQuest(仮)", 200, false),
   new TextClass("START: PRESS ANY", 100, false),
-  new TextClass("DRAW COMMENT :M", 50, false),
+  new TextClass("DRAW COMMENT  :M", 50, false),
   new TextClass("SWITCH COMMENT:L", 50, false),
 ];
 
 /* 事前読み込み */
 function preload() {
-  myfont = loadFont("../../font/misaki_gothic_2nd.ttf");
+  myfont = loadFont("../../font/DeterminationJP.ttf");
 }
 
 /* セットアップ */
@@ -41,15 +41,15 @@ function setup() {
   createCanvas(1920, 1080);
   frameRate(60);
   textFont(myfont);
-  obj_retry[0].init(14, 7, 255, 255, 255);
-  obj_retry[1].init(13, 13, 255, 255, 255);
-  obj_retry[2].init(1, 1, 255, 255, 255);
-  obj_retry[3].init(13, 7, 255, 255, 255);
-  obj_retry[4].init(13, 13, 255, 255, 255);
-  obj_retry[5].init(7, 7, 255, 255, 255);
-  obj_retry[6].init(11, 13, 255, 255, 255);
-  obj_retry[7].init(3, 4, 255, 255, 255);
-  obj_retry[8].init(3, 6, 255, 255, 255);
+  obj_text[0].init(12, 7, 255, 255, 255);
+  obj_text[1].init(11, 13, 255, 255, 255);
+  obj_text[2].init(1, 1, 255, 255, 255);
+  obj_text[3].init(10, 7, 255, 255, 255);
+  obj_text[4].init(11, 13, 255, 255, 255);
+  obj_text[5].init(3, 7, 255, 255, 255);
+  obj_text[6].init(10, 13, 255, 255, 255);
+  obj_text[7].init(2, 4, 255, 255, 255);
+  obj_text[8].init(2, 5, 255, 255, 255);
 }
 
 /* ループ */
@@ -58,8 +58,8 @@ function draw() {
   switch (scene) {
     case "title": {
       background(0);
-      obj_retry[5].push();
-      obj_retry[6].push();
+      obj_text[5].push();
+      obj_text[6].push();
       break;
     }
     case "option": {
@@ -100,8 +100,8 @@ function draw() {
         fill(128, 128, 128, 90);
         noStroke();
         rect(0, 0, 1920, 1080);
-        obj_retry[0].push();
-        obj_retry[1].push();
+        obj_text[0].push();
+        obj_text[1].push();
         flag[0] = true;
       }
       break;
@@ -112,9 +112,9 @@ function draw() {
         fill(128, 128, 128, 90);
         noStroke();
         rect(0, 0, 1920, 1080);
-        obj_retry[2].push();
-        obj_retry[7].push();
-        obj_retry[8].push();
+        obj_text[2].push();
+        obj_text[7].push();
+        obj_text[8].push();
         flag[0] = true;
       }
       break;
@@ -125,8 +125,8 @@ function draw() {
         fill(128, 128, 128, 90);
         noStroke();
         rect(0, 0, 1920, 1080);
-        obj_retry[3].push();
-        obj_retry[4].push();
+        obj_text[3].push();
+        obj_text[4].push();
         flag[0] = true;
       }
       break;
@@ -148,10 +148,10 @@ function keyPressed() {
     case "c": {
       if (bg.getRed() == 0) {
         colorChange(chr, obj, bg, 0, 0, 0);
-        systemCChange(obj_retry, 0, 0, 0);
+        systemCChange(obj_text, 0, 0, 0);
       } else {
         colorChange(chr, obj, bg, 255, 255, 255);
-        systemCChange(obj_retry, 255, 255, 255);
+        systemCChange(obj_text, 255, 255, 255);
       }
       break;
     }

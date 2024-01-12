@@ -5,6 +5,7 @@ class OneWayWall extends ObjectClass {
     constructor(width_block, height_block, direction) {
         super(width_block, height_block, true);
         this.direction = direction;
+        this.clashenable = false;
     }
 
     // 描画メソッド
@@ -33,14 +34,24 @@ class OneWayWall extends ObjectClass {
     // 当たり判定の設定
     // drawメソッドのclash関数の前で呼び出すこと
     setClash(chr) {
-        if (chr.getY() + chr.getHeight() <= this.y + 20 || chr.getY() >= this.y + this.height - 20) {
-            this.clashenable = true;
+        // 物体との衝突を判定
+        let touch = 0;
+        touch += chr.getX() >= this.x - chr.getWidth() ? 1 : 0;
+        touch += chr.getX() <= this.x + this.width ? 1 : 0;
+        touch += chr.getY() >= this.y - chr.getHeight() ? 1 : 0;
+        touch += chr.getY() <= this.y + this.height ? 1 : 0;
+        // 衝突時の処理
+        if (touch == 4) {
+            // 矢印と反対向きへ進めないようにする処理
+            if (this.direction == "right" && chr.getDX() < 0) {
+                chr.setDX(0);
+                chr.setX(chr.getX() + 1);
+            } else if (this.direction == "right" && chr.getDX() < 0) {
+                chr.setDX(0);
+                chr.setX(chr.getX() - 1);
+
+            }
         }
-        else if (this.direction == "right") {
-            this.clashenable = (chr.getX() >= this.x + this.width - 10) ? true : false;
-        }
-        else if (this.direction == "left") {
-            this.clashenable = (chr.getX() + chr.width <= this.x + 10) ? true : false;
-        }
+        
     }
 }

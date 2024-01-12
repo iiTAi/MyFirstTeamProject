@@ -12,6 +12,7 @@ function pushes(obj) {
 // 衝突方向の速度を0とし、自機を物体の端から僅かにずれた座標へ動かす
 // 連続ジャンプを防止する機能を含める
 function clash(chr, obj) {
+  chr.setJumpenable(false);  // 空中ジャンプ予防
   for (let i = 0; i < obj.length; i++) {
     // 物体との衝突を判定
     let touch = 0;

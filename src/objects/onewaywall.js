@@ -17,31 +17,16 @@ class OneWayWall extends ObjectClass {
         }
         rect(this.x, this.y, this.width, this.height);
 
-        if (this.direction == "right") {
-            line(this.x + this.width / 4, this.y + this.height / 2, this.x + this.width * 3 / 4, this.y + this.height / 2);
-            line(this.x + this.width * 3 / 4, this.y + this.height / 2, this.x + this.width * 3 / 4 - 10, this.y + this.height / 2 - 10);
-            line(this.x + this.width * 3 / 4, this.y + this.height / 2, this.x + this.width * 3 / 4 - 10, this.y + this.height / 2 + 10);
-
-            line(this.x + this.width / 4, this.y + this.height / 4, this.x + this.width * 3 / 4, this.y + this.height / 4);
-            line(this.x + this.width * 3 / 4, this.y + this.height / 4, this.x + this.width * 3 / 4 - 10, this.y + this.height / 4 - 10);
-            line(this.x + this.width * 3 / 4, this.y + this.height / 4, this.x + this.width * 3 / 4 - 10, this.y + this.height / 4 + 10);
-                
-            line(this.x + this.width / 4, this.y + this.height * 3 / 4, this.x + this.width * 3 / 4, this.y + this.height * 3 / 4);
-            line(this.x + this.width * 3 / 4, this.y + this.height * 3 / 4, this.x + this.width * 3 / 4 - 10, this.y + this.height * 3 / 4 - 10);
-            line(this.x + this.width * 3 / 4, this.y + this.height * 3 / 4, this.x + this.width * 3 / 4 - 10, this.y + this.height * 3 / 4 + 10);
-        }
-        else if (this.direction == "left"){
-            line(this.x + this.width / 4, this.y + this.height / 2, this.x + this.width * 3 / 4, this.y + this.height / 2);
-            line(this.x + this.width / 4, this.y + this.height / 2, this.x + this.width / 4 + 10, this.y + this.height / 2 - 10);
-            line(this.x + this.width / 4, this.y + this.height / 2, this.x + this.width / 4 + 10, this.y + this.height / 2 + 10);
-
-            line(this.x + this.width / 4, this.y + this.height / 4, this.x + this.width * 3 / 4, this.y + this.height / 4);
-            line(this.x + this.width / 4, this.y + this.height / 4, this.x + this.width / 4 + 10, this.y + this.height / 4 - 10);
-            line(this.x + this.width / 4, this.y + this.height / 4, this.x + this.width / 4 + 10, this.y + this.height / 4 + 10);
-
-            line(this.x + this.width / 4, this.y + this.height * 3 / 4, this.x + this.width * 3 / 4, this.y + this.height * 3 / 4);
-            line(this.x + this.width / 4, this.y + this.height * 3 / 4, this.x + this.width / 4 + 10, this.y + this.height * 3 / 4 - 10);
-            line(this.x + this.width / 4, this.y + this.height * 3 / 4, this.x + this.width / 4 + 10, this.y + this.height * 3 / 4 + 10);
+        for (let i = 0; i < this.height / 50; i++) {
+            line(this.x + this.width / 4, this.y + 25 + i * 50, this.x + this.width * 3 / 4, this.y + 25 + i * 50);
+            if (this.direction == "right") {
+                line(this.x + this.width * 3 / 4, this.y + 25 + i * 50, this.x + this.width * 3 / 4 - 10, this.y + 25 + i * 50 - 10);
+                line(this.x + this.width * 3 / 4, this.y + 25 + i * 50, this.x + this.width * 3 / 4 - 10, this.y + 25 + i * 50 + 10);
+            }
+            else if (this.direction == "left") {
+                line(this.x + this.width / 4, this.y + 25 + i * 50, this.x + this.width / 4 + 10, this.y + 25 + i * 50 - 10);
+                line(this.x + this.width / 4, this.y + 25 + i * 50, this.x + this.width / 4 + 10, this.y + 25 + i * 50 + 10);
+            }
         }
     }
 

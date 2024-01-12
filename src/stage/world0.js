@@ -20,7 +20,7 @@ function world0() {
                     new ClearLine(1, 3, 1, 2),
                     new GravityButton("floor"),
                     new GravityButton("ceiling"),
-                    new OneWayWall(1, 3, "right"),
+                    new OneWayWall(1, 4, "right"),
                     new WarpPortal("floor", 0, 1),
                     new WarpPortal("floor", 1, 0),
                     new UnjumpableSign(),
@@ -39,11 +39,11 @@ function world0() {
                 obj[6].init(37, 15, 255, 255, 255);
                 obj[7].init(5, 17, 255, 255, 255);
                 obj[8].init(7, 3, 255, 255, 255);
-                obj[9].init(32, 15, 255, 255, 255);
+                obj[9].init(32, 14, 255, 255, 255);
                 obj[10].init(35, 17, 255, 255, 255);
                 obj[11].init(2, 17, 255, 255, 255);
                 obj[12].init(1, 17, 255, 255, 255);
-                obj[13].init(17, 12, 128, 128, 128);
+                obj[13].init(17, 12, 255, 255, 255);
 
                 setStartPoint(chr);  // キャラクターのスタート地点を設定
 
@@ -97,6 +97,7 @@ function world0() {
                     new OneWayWall(1, 3, "left"),
                     new ColorChanger(1, 2, "inv"),
                     new ClearLine(1, 3, 2, 1),
+                    new BreakFloor(2, 1, 10),
                 ];
 
                 // 初期化
@@ -117,6 +118,8 @@ function world0() {
                 obj[12].init(32, 15, 0, 0, 0);
                 obj[13].init(11, 16, 0, 0, 0);
                 obj[14].init(0, 15, 0, 0, 0);
+                obj[15].init(23, 15, 0, 0, 0);
+
 
                 setStartPoint(chr);  // キャラクターのスタート地点を設定
 
@@ -134,6 +137,7 @@ function world0() {
                 obj[8].checkClash(chr);
                 obj[9].checkClash(chr);
                 obj[13].checkClash(chr);
+                obj[15].checkClash(chr);
                 clash(chr, obj);
                 chr.checkOffScreen();
                 chr.move();

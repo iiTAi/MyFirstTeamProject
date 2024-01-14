@@ -34,10 +34,13 @@ var obj_text = [
 /* 事前読み込み */
 function preload() {
   myfont = loadFont("../../font/DeterminationJP.ttf");
+  sound = loadSound("../../sound/128_BPM124.mp3")
 }
 
 /* セットアップ */
 function setup() {
+  
+  sound.loop();
   createCanvas(1920, 1080);
   frameRate(60);
   textFont(myfont);

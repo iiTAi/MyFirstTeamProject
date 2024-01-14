@@ -57,7 +57,11 @@ class WarpPortal extends ObjectClass {
             for (let i = 0; i < obj.length; i++) {
                 if (obj[i].uniID == this.warpID && obj[i] != this) {
                     chr.setX(obj[i].getX());
-                    chr.setY(obj[i].getY() - 50);
+                    if (obj[i].position == "floor") {
+                        chr.setY(obj[i].getY() - 50);
+                    } else if (obj[i].position == "ceiling") {
+                        chr.setY(obj[i].getY());
+                    }
                     obj[i].warpComp = true;
                     break;
                 }

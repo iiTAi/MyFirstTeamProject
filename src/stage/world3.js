@@ -284,6 +284,160 @@ function world3() {
             }
             break;
         }
+        case "2-2": {
+            if (state == "setup") {
+                // インスタンスの更新
+                chr = new CharaClass();
+                bg = new BackGroundClass();
+                obj = [
+                    new ClearLine(1, 2, 1, 0),
+                    new ClearLine(1, 2),
+
+                    new BreakFloor(2, 12, 25),
+
+                    new ColorChanger(1, 23, "red"),
+                    new ColorChanger(1, 23, "green"),
+                    new ColorChanger(1, 3, "inv"),
+                    new ColorChanger(1, 3, "red"),
+                    new ColorChanger(1, 3, "green"),
+
+                    new RectClass(1, 1),
+                    new RectClass(1, 1),
+                    new RectClass(1, 1),
+                    new RectClass(1, 1),
+                    new RectClass(1, 1),
+                    new RectClass(1, 1),
+                    new RectClass(1, 1),
+                    new RectClass(1, 1),
+
+                    new TransRectClass(1, 1),
+                    new TransRectClass(1, 1),
+                    new TransRectClass(1, 1),
+                    new TransRectClass(1, 1),
+                    new TransRectClass(1, 1),
+                    new TransRectClass(1, 1),
+                    new TransRectClass(1, 1),
+                    new TransRectClass(1, 1),
+                    new TransRectClass(1, 1),
+                    new TransRectClass(1, 1),
+                    new TransRectClass(1, 3),
+                    new TransRectClass(1, 1),
+
+                    new TransRectClass(1, 2),
+
+                    new RectClass(1, 1),
+                    new RectClass(6, 3),
+                    new RectClass(4, 3),
+                    new RectClass(2, 1),
+                    new RectClass(1, 5)
+                    
+                ];
+
+                // 初期化
+                bg.setRGB(0, 0, 0);
+                chr.init(0, 18, 255, 255, 255);
+                obj[0].init(0, 17, 255, 255, 255);
+                obj[1].init(37, 17, 255, 255, 255);
+
+                obj[2].init(34, 7, 255, 255, 255);
+
+                obj[3].init(12, -1, 255, 0, 0);
+                obj[4].init(28, -1, 0, 255, 0);
+                obj[5].init(20, 0, 0, 0, 0);
+                obj[6].init(20, 12, 255, 0, 0);
+                obj[7].init(20, 6, 0, 255, 0);
+
+                obj[8].init(8, 4, 255, 255, 255);
+                obj[9].init(16, 4, 255, 255, 255);
+                obj[10].init(8, 7, 255, 255, 255);
+                obj[11].init(32, 10, 255, 255, 255);
+                obj[12].init(32, 13, 255, 255, 255);
+                obj[13].init(8, 16, 255, 255, 255);
+                obj[14].init(16, 16, 255, 255, 255);
+                obj[15].init(32, 16, 255, 255, 255);
+
+                obj[16].init(24, 4, 255, 0, 0);
+                obj[17].init(16, 10, 255, 0, 0);
+                obj[18].init(16, 13, 255, 0, 0);
+                obj[19].init(16, 7, 0, 255, 0);
+                obj[20].init(32, 7, 0, 255, 0);
+                obj[21].init(24, 10, 0, 255, 0);
+                obj[22].init(8, 10, 255, 255, 0);
+                obj[23].init(24, 7, 0, 0, 0);
+                obj[24].init(8, 13, 0, 0, 0);
+                obj[25].init(24, 13, 0, 0, 0);
+                obj[26].init(32, 4, 255, 255, 255);
+                obj[27].init(24, 16, 255, 255, 255);
+
+                obj[28].init(36, 17, 0, 255, 0);
+
+                obj[29].init(0, 16, 255, 255, 255);
+                obj[30].init(0, 19, 255, 255, 255);
+                obj[31].init(34, 19, 255, 255, 255);
+                obj[32].init(36, 16, 255, 255, 255);
+                obj[33].init(34, 2, 255, 255, 255);
+
+                // スタート地点の設定
+                setStartPoint(chr);
+
+                // stateの更新
+                state = "draw";
+
+            } else if (state == "draw") {
+                // 背景の描画
+                bg.push();
+
+                // 各種処理
+                obj[2].checkClash(chr);
+
+                obj[3].checkClash(chr);
+                obj[4].checkClash(chr);
+                obj[5].checkClash(chr);
+                obj[6].checkClash(chr);
+                obj[7].checkClash(chr);
+
+                obj[16].setClash(bg);
+                obj[17].setClash(bg);
+                obj[18].setClash(bg);
+                obj[19].setClash(bg);
+                obj[20].setClash(bg);
+                obj[21].setClash(bg);
+                obj[22].setClash(bg);
+                obj[23].setClash(bg);
+                obj[24].setClash(bg);
+                obj[25].setClash(bg);
+                obj[26].setClash(bg);
+                obj[27].setClash(bg);
+
+                obj[28].setClash(bg);
+
+                clash(chr, obj);
+                chr.checkOffScreen();
+                chr.move();
+                // 描画
+                chr.push();
+                pushes(obj);
+                // images load from firestrage
+                if (!isImgLoad) {
+                  getStageImg(stage);
+                  isImgLoad = true;
+                }
+                // ゴール判定
+                if (obj[0].checkClear(chr)) {
+                  stage = "2-1";
+                  state = "setup";
+                  isImgLoad = false;
+                  deleteStageImg();
+                }
+                if (obj[1].checkClear(chr)) {
+                    nextstage = "3-1";
+                    state = "clear";
+                    isImgLoad = false;
+                    deleteStageImg();
+                }
+            }
+            break;
+        }
         case "3-1": {
             if (state == "setup") {
                 // インスタンスの更新

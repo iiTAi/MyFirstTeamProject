@@ -22,7 +22,7 @@ var obj = [];
 var obj_text = [
   new TextClass("MISS", 300, false),
   new TextClass("RETRY: PRESS R", 100, false),
-  new TextClass("POSE", 100, false),
+  new TextClass("PAUSE", 100, false),
   new TextClass("CLEAR", 300, false),
   new TextClass("NEXT:  PRESS R", 100, false),
   new TextClass("VividQuest(仮)", 200, false),
@@ -85,6 +85,7 @@ function draw() {
       break;
     }
     case "world3": {
+      world3();
       break;
     }
     case "world4": {

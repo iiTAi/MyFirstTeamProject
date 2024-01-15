@@ -562,6 +562,7 @@ function world2() {
                     new TransRectClass(2, 1),
                     new TransRectClass(2, 1),
                     new UnjumpableSign(),
+                    new TransRectClass(1, 1),
                 ];
 
                 // 初期化
@@ -636,7 +637,7 @@ function world2() {
                 obj[66].init(12, 7, 0, 0, 0);
                 obj[67].init(31, 8, 0, 0, 0);
                 obj[68].init(16, 12, 0, 0, 0);
-                obj[69].init(27, 3, 0, 0, 0);
+                obj[69].init(27, 4, 0, 0, 0);
                 obj[70].init(27, 15, 0, 0, 0);
                 obj[71].init(24, 16, 0, 0, 0);
                 obj[72].init(27, 2, 255, 0, 0);
@@ -655,6 +656,7 @@ function world2() {
                 obj[85].init(17, 8, 255, 0, 0);
                 obj[86].init(16, 11, 255, 0, 0);
                 obj[87].init(1, 3, 0, 0, 0);
+                obj[88].init(19, 19, 0, 0, 0);
                 setStartPoint(chr);
                 // stateの更新
                 state = "draw";
@@ -704,6 +706,7 @@ function world2() {
                 obj[84].setClash(bg);
                 obj[85].setClash(bg);
                 obj[86].setClash(bg);
+                obj[88].setClash(bg);
                 clash(chr, obj);
                 chr.checkOffScreen();
                 chr.setJumpenable(false);

@@ -27,10 +27,5 @@ class UnjumpableSign extends ObjectClass {
         noStroke();
         textSize(26);
         text("JUMP", this.x + 19, this.y - 2);
-
-        if (this.red + this.green + this.blue != 765) {
-            fill(0, 0, 0, 60);
-            rect(this.x, this.y, this.width, this.height);
-        }
     }
 }

@@ -74,7 +74,7 @@ document.getElementById("submit").addEventListener("click", () => {
     });
     const formData = new FormData();
     formData.append("file", base64);
-    axios.post("http://localhost:3000/" + stage, { base: base64 });
+    axios.post("http://localhost:3000/" + world+"-"+stage, { base: base64 });
     // document.getElementById("downloadPng").classList.toggle("none");
     setTimeout(() => {
       canvas.clear();

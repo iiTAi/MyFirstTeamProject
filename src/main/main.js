@@ -2,11 +2,12 @@
 
 /* 変数の定義 */
 let scene = "title"; // 場面を制御する変数
-let stage = "3-1"; // 実行するステージを制御する変数
+let stage = "4-1"; // 実行するステージを制御する変数
 let nextstage = null; // 次のステージを一時的に保持する変数
 let state = "setup"; // 各ステージでの初期化とループを制御する変数
 let gravity = "down"; // 重力の向きを制御する変数
 let isImgLoad = false;
+let world = "1"
 
 /* 各種フラグ */
 // 必要な時に必要な数だけ使うこと
@@ -29,6 +30,7 @@ var obj_text = [
   new TextClass("START: PRESS ANY", 100, false),
   new TextClass("DRAW COMMENT  :M", 50, false),
   new TextClass("SWITCH COMMENT:L", 50, false),
+  new TextClass("RESTART:R", 50, false),
 ];
 
 /* 事前読み込み */
@@ -50,6 +52,7 @@ function setup() {
   obj_text[6].init(10, 13, 255, 255, 255);
   obj_text[7].init(2, 4, 255, 255, 255);
   obj_text[8].init(2, 5, 255, 255, 255);
+  obj_text[9].init(2, 6, 255, 255, 255);
 }
 
 /* ループ */
@@ -116,6 +119,7 @@ function draw() {
         obj_text[2].push();
         obj_text[7].push();
         obj_text[8].push();
+        obj_text[9].push();
         flag[0] = true;
       }
       break;
@@ -138,7 +142,7 @@ function draw() {
 /* キーが入力された瞬間のみ呼び出される関数 */
 function keyPressed() {
   if (scene == "title") {
-    scene = "world2";
+    scene = "world1";
   }
   switch (key) {
     case "w": {

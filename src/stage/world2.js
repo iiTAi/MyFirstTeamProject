@@ -1,6 +1,8 @@
 /*--- world2 ---*/
 function world2() {
-
+    if(scene =="world2"){
+        world = "2"
+    }
     switch (stage) {
         case "1-1": {
             if (state == "setup") {
@@ -83,7 +85,7 @@ function world2() {
                 pushes(obj);
                 // images load from firestrage
                 if (!isImgLoad) {
-                    getStageImg(stage);
+                    getStageImg(world+"-"+stage);
                     isImgLoad = true;
                 }
                 // ゴール判定
@@ -202,7 +204,7 @@ function world2() {
                 pushes(obj);
                 // images load from firestrage
                 if (!isImgLoad) {
-                    getStageImg(stage);
+                    getStageImg(world+"-"+stage);
                     isImgLoad = true;
                 }
                 // ゴール判定
@@ -324,7 +326,7 @@ function world2() {
                 pushes(obj);
                 // images load from firestrage
                 if (!isImgLoad) {
-                    getStageImg(stage);
+                    getStageImg(world+"-"+stage);
                     isImgLoad = true;
                 }
                 // ゴール判定
@@ -455,7 +457,7 @@ function world2() {
                 pushes(obj);
                 // images load from firestrage
                 if (!isImgLoad) {
-                    getStageImg(stage);
+                    getStageImg(world+"-"+stage);
                     isImgLoad = true;
                 }
                 // ゴール判定

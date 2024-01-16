@@ -1,5 +1,8 @@
 /*--- world1 ---*/
 function world1() {
+  if(scene=="world1"){
+    world = "1"
+  }
   switch (stage) {
     case "1-1": {
       if (state == "setup") {
@@ -49,7 +52,7 @@ function world1() {
         pushes(obj);
         // images load from firestrage
         if (!isImgLoad) {
-          getStageImg(stage);
+          getStageImg(world+"-"+stage);
           isImgLoad = true;
         }
         // ゴール判定
@@ -112,7 +115,7 @@ function world1() {
         pushes(obj);
         // images load from firestrage
         if (!isImgLoad) {
-          getStageImg(stage);
+          getStageImg(world+"-"+stage);
           isImgLoad = true;
         }
         // ゴール判定
@@ -191,7 +194,7 @@ function world1() {
         pushes(obj);
         // images load from firestrage
         if (!isImgLoad) {
-          getStageImg(stage);
+          getStageImg(world+"-"+stage);
           isImgLoad = true;
         }
         // 前画面に戻る処理
@@ -258,7 +261,7 @@ function world1() {
         pushes(obj);
         // images load from firestrage
         if (!isImgLoad) {
-          getStageImg(stage);
+          getStageImg(world+"-"+stage);
           isImgLoad = true;
         }
         // ゴール判定
@@ -346,7 +349,7 @@ function world1() {
         pushes(obj);
         // images load from firestrage
         if (!isImgLoad) {
-          getStageImg(stage);
+          getStageImg(world+"-"+stage);
           isImgLoad = true;
         }
         // 前画面に戻る処理
@@ -413,7 +416,7 @@ function world1() {
             pushes(obj);
             // images load from firestrage
             if (!isImgLoad) {
-              getStageImg(stage);
+              getStageImg(world+"-"+stage);
               isImgLoad = true;
             }
             // ゴール判定
@@ -544,7 +547,7 @@ function world1() {
             pushes(obj);
             // images load from firestrage
             if (!isImgLoad) {
-              getStageImg(stage);
+              getStageImg(world+"-"+stage);
               isImgLoad = true;
             }
             // ゴール判定
@@ -555,7 +558,8 @@ function world1() {
               deleteStageImg();
             }
             if (obj[0].checkClear(chr)) {
-              nextstage = "5-1";
+              nextstage = "1-1";
+              scene = "world2"
               state = "clear";
               isImgLoad = false;
               deleteStageImg();
@@ -563,81 +567,6 @@ function world1() {
         }
         break;
     }
-    case "5-1": {
-      if (state == "setup") {
-        // インスタンスの更新
-        chr = new CharaClass();
-        bg = new BackGroundClass();
-        obj = [];
-
-        // 初期化
-
-        // stateの更新
-        state = "draw";
-      } else if (state == "draw") {
-        // 背景の描画
-        // 各種処理
-        // 描画
-        // ゴール判定
-      }
-      break;
-    }
-    case "6-1": {
-      if (state == "setup") {
-        // インスタンスの更新
-        chr = new CharaClass();
-        bg = new BackGroundClass();
-        obj = [];
-
-        // 初期化
-
-        // stateの更新
-        state = "draw";
-      } else if (state == "draw") {
-        // 背景の描画
-        // 各種処理
-        // 描画
-        // ゴール判定
-      }
-      break;
-    }
-    case "7-1": {
-      if (state == "setup") {
-        // インスタンスの更新
-        chr = new CharaClass();
-        bg = new BackGroundClass();
-        obj = [];
-
-        // 初期化
-
-        // stateの更新
-        state = "draw";
-      } else if (state == "draw") {
-        // 背景の描画
-        // 各種処理
-        // 描画
-        // ゴール判定
-      }
-      break;
-    }
-    case "8-1": {
-      if (state == "setup") {
-        // インスタンスの更新
-        chr = new CharaClass();
-        bg = new BackGroundClass();
-        obj = [];
-
-        // 初期化
-
-        // stateの更新
-        state = "draw";
-      } else if (state == "draw") {
-        // 背景の描画
-        // 各種処理
-        // 描画
-        // ゴール判定
-      }
-      break;
-    }
+    
   }
 }

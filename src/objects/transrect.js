@@ -23,7 +23,11 @@ class TransRectClass extends ObjectClass {
         }
         
         rect(this.x, this.y, this.width, this.height);
+
+        strokeWeight(2);
         circle(this.x + this.width / 2, this.y + this.height / 2, 30);
+        strokeWeight(1);
+        
         if (this.red + this.green + this.blue != 765) {
             fill(0, 0, 0, 60);
             rect(this.x, this.y, this.width, this.height);

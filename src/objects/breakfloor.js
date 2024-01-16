@@ -19,9 +19,9 @@ class BreakFloor extends ObjectClass{
             }
             rect(this.x, this.y, this.width, this.height);
 
+            strokeWeight(2);
             for(let i = 0; i < this.width / 50; i++){
                 for(let j = 0; j < this.height / 50; j++){
-                    strokeWeight(2);
                     line(this.x + 50/3 + 5 + i * 50, this.y + j * 50, this.x + 50/3 + 5 + i * 50 - 10, this.y + j * 50 + 10);
                     line(this.x + 50/3 + 5 + i * 50 - 10, this.y + j * 50 + 10, this.x + 50/3 + 5 + i * 50, this.y + j * 50 + 20);
                     line(this.x + 50/3 + 5 + i * 50, this.y + j * 50 + 20, this.x + 50/3 + 5 + i * 50 - 10, this.y + j * 50 + 30);
@@ -31,6 +31,8 @@ class BreakFloor extends ObjectClass{
                     line(this.x + 100/3 - 5 + i * 50, this.y + 50 + j * 50 - 20, this.x + 100/3 - 5 + i * 50 + 10, this.y + 50 + j * 50 - 30);
                 }
             }
+            strokeWeight(1);
+            
             if (this.red + this.green + this.blue != 765) {
                 fill(0, 0, 0, 60);
                 rect(this.x, this.y, this.width, this.height);

@@ -723,7 +723,8 @@ function world2() {
                 }
                 // ゴール判定
                 if (obj[0].checkClear(chr)) {
-                    nextstage = "5-1";
+                    nextstage = "1-1";
+                    scene = "world3";
                     state = "clear";
                     isImgLoad = false;
                     deleteStageImg();

@@ -92,6 +92,7 @@ function draw() {
       break;
     }
     case "world4": {
+      world4();
       break;
     }
     case "epilogue": {

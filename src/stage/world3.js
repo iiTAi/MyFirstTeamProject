@@ -181,7 +181,7 @@ function world3() {
                 pushes(obj);
                 // images load from firestrage
                 if (!isImgLoad) {
-                  getStageImg(stage);
+                  getStageImg(world+"-"+stage);
                   isImgLoad = true;
                 }
                 // ゴール判定
@@ -273,7 +273,7 @@ function world3() {
                 pushes(obj);
                 // images load from firestrage
                 if (!isImgLoad) {
-                  getStageImg(stage);
+                  getStageImg(world+"-"+stage);
                   isImgLoad = true;
                 }
                 // ゴール判定
@@ -421,7 +421,7 @@ function world3() {
                 pushes(obj);
                 // images load from firestrage
                 if (!isImgLoad) {
-                  getStageImg(stage);
+                  getStageImg(world+"-"+stage);
                   isImgLoad = true;
                 }
                 // ゴール判定
@@ -685,7 +685,7 @@ function world3() {
                 pushes(obj);
                 // images load from firestrage
                 if (!isImgLoad) {
-                  getStageImg(stage);
+                  getStageImg(world+"-"+stage);
                   isImgLoad = true;
                 }
                 // ゴール判定
@@ -988,7 +988,7 @@ function world3() {
                 pushes(obj);
                 // images load from firestrage
                 if (!isImgLoad) {
-                  getStageImg(stage);
+                  getStageImg(world+"-"+stage);
                   isImgLoad = true;
                 }
                 // ゴール判定

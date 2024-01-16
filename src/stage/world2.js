@@ -718,7 +718,7 @@ function world2() {
                 pushes(obj);
                 // images load from firestrage
                 if (!isImgLoad) {
-                    getStageImg(stage);
+                    getStageImg(world+"-"+stage);
                     isImgLoad = true;
                 }
                 // ゴール判定

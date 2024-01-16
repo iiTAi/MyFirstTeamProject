@@ -79,7 +79,7 @@ document.getElementById("submit").addEventListener("click", () => {
     setTimeout(() => {
       canvas.clear();
       document.getElementById("canv-back").classList.toggle("none");
-      reloadImg(stage);
+      reloadImg(world+"-"+stage);
     }, 300);
 
   }

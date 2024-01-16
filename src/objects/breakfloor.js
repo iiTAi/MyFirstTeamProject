@@ -55,7 +55,7 @@ class BreakFloor extends ObjectClass{
         touch += (chr.getY() <= this.y + this.height) ? 1 : 0;
 
         // 衝突した際の処理
-        if (touch == 4 && chr.getDY() >= this.BreakDy && !(this.Broken)) {
+        if (touch == 4 && (chr.getDY() >= this.BreakDy || chr.getDY() <= -this.BreakDy) && !(this.Broken)) {
                 this.Broken = true
                 this.clashenable = false; // 衝突判定を無効化
                 chr.setDY(0);

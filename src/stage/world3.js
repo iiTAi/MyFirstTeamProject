@@ -1,6 +1,8 @@
 /*--- world3 ---*/
 function world3() {
-
+    if(scene=="world3"){
+        world="3"
+    }
     switch (stage) {
         case "1-1": {
             if (state == "setup") {

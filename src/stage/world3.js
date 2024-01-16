@@ -701,33 +701,45 @@ function world3() {
                 // インスタンスの更新
                 chr = new CharaClass();
                 bg = new BackGroundClass();
-                obj = [];
+                obj = [
+                    new ClearLine(1, 2),
+
+                    new OneWayWall(1, 2, "left"),
+                    new OneWayWall(1, 2, "left"),
+
+                    new BreakFloor(2, 1, 25),
+                    new BreakFloor(3, 3, 25),
+
+                    new WarpPortal("floor", 0, 1),
+                    new WarpPortal("floor", 1, 0),
+
+                    new ColorChanger(2, 1, "inv"),
+                    new ColorChanger(2, 1, "inv"),
+                    new ColorChanger(2, 1, "red"),
+                    new ColorChanger(2, 1, "green"),
+                    new ColorChanger(1, 2, "red"),
+
+                    new TransRectClass(2, 1),
+                    new TransRectClass(2, 1),
+                    new TransRectClass(2, 1),
+                    new TransRectClass(2, 1),
+                    new TransRectClass(2, 1),
+                    new TransRectClass(2, 1),
+                    new TransRectClass(2, 1),
+
+                    new TransRectClass(1, 2),
+                    new TransRectClass(1, 2),
+                    new TransRectClass(1, 2),
+                    new TransRectClass(1, 2),
+                    new TransRectClass(1, 2),
+
+                    new TransRectClass(1, 3),
+
+
+                ];
 
                 // 初期化
-
-                // stateの更新
-                state = "draw";
-
-            } else if (state == "draw") {
-                // 背景の描画
-
-                // 各種処理
-
-                // 描画
-
-                // ゴール判定
-            }
-            break;
-        }
-        case "5-1": {
-            if (state == "setup") {
-                // インスタンスの更新
-                chr = new CharaClass();
-                bg = new BackGroundClass();
-                obj = [];
-
-                // 初期化
-
+                
                 // stateの更新
                 state = "draw";
 

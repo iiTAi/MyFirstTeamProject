@@ -134,8 +134,12 @@ function draw() {
         fill(128, 128, 128, 90);
         noStroke();
         rect(0, 0, 1920, 1080);
-        obj_text[3].push();
-        obj_text[4].push();
+        if (!(scene == "world4" && stage == "4-1")) {
+          obj_text[3].push();
+          obj_text[4].push();
+        } else {
+          obj_text[3].push();
+        }
         flag[0] = true;
       }
       break;

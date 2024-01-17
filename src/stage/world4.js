@@ -454,7 +454,7 @@ function world4() {
 
                 // 初期化
                 bg.setRGB(0, 0, 0);
-                chr.init(6, 20, 255, 255, 255);
+                chr.init(0, 2, 255, 255, 255);
 
                 // TRC
                 obj[0].init(0, 0, 0, 0, 0);

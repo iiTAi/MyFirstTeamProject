@@ -26,11 +26,13 @@ var obj_text = [
   new TextClass("PAUSE", 100, false),
   new TextClass("CLEAR", 300, false),
   new TextClass("NEXT:  PRESS R", 100, false),
-  new TextClass("VividQuest(仮)", 200, false),
+  new TextClass("RIDDLE JOURNEY", 200, false),
   new TextClass("START: PRESS ANY", 100, false),
   new TextClass("DRAW COMMENT  :M", 50, false),
   new TextClass("SWITCH COMMENT:L", 50, false),
   new TextClass("RESTART:R", 50, false),
+  new TextClass("WORLD: " + world, 50, false),
+  new TextClass("STAGE: " + stage, 50, false),
 ];
 
 /* 事前読み込み */
@@ -51,7 +53,7 @@ function setup() {
   obj_text[2].init(1, 1, 255, 255, 255);
   obj_text[3].init(10, 7, 255, 255, 255);
   obj_text[4].init(11, 13, 255, 255, 255);
-  obj_text[5].init(3, 7, 255, 255, 255);
+  obj_text[5].init(2, 7, 255, 255, 255);
   obj_text[6].init(10, 13, 255, 255, 255);
   obj_text[7].init(2, 4, 255, 255, 255);
   obj_text[8].init(2, 5, 255, 255, 255);
@@ -115,16 +117,22 @@ function draw() {
       }
       break;
     }
-    // ポーズ
+    // ポーズ 
     case "pose": {
       if (!flag[0]) {
         fill(128, 128, 128, 90);
         noStroke();
         rect(0, 0, 1920, 1080);
+        obj_text[10] = new TextClass("WORLD: " + world, 75, false);
+        obj_text[11] = new TextClass("STAGE: " + stage, 75, false);
+        obj_text[10].init(28, 1, 255, 255, 255)
+        obj_text[11].init(28, 2.5, 255, 255, 255)
         obj_text[2].push();
         obj_text[7].push();
         obj_text[8].push();
         obj_text[9].push();
+        obj_text[10].push();
+        obj_text[11].push();
         flag[0] = true;
       }
       break;
@@ -159,7 +167,7 @@ function keyPressed() {
       break;
     }
     // デバッグ用
-    case "c": {
+    /*case "c": {
       if (bg.getRed() == 0) {
         colorChange(chr, obj, bg, 0, 0, 0);
         systemCChange(obj_text, 0, 0, 0);
@@ -168,7 +176,7 @@ function keyPressed() {
         systemCChange(obj_text, 255, 255, 255);
       }
       break;
-    }
+    }*/
     case "r": {
       // 強制ミス
       if (state == "draw") {

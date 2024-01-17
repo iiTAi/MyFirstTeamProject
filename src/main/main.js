@@ -33,6 +33,7 @@ var obj_text = [
   new TextClass("RESTART:R", 50, false),
   new TextClass("WORLD: " + world, 50, false),
   new TextClass("STAGE: " + stage, 50, false),
+  new TextClass("THANK YOU FOR PLAYING!", 100, false),
 ];
 
 /* 事前読み込み */
@@ -58,6 +59,8 @@ function setup() {
   obj_text[7].init(2, 4, 255, 255, 255);
   obj_text[8].init(2, 5, 255, 255, 255);
   obj_text[9].init(2, 6, 255, 255, 255);
+  obj_text[12].init(6, 13, 255, 255, 255);
+  
 }
 
 /* ループ */
@@ -143,8 +146,13 @@ function draw() {
         fill(128, 128, 128, 90);
         noStroke();
         rect(0, 0, 1920, 1080);
-        obj_text[3].push();
-        obj_text[4].push();
+        if (!(scene == "world4" && stage == "4-1")) {
+          obj_text[3].push();
+          obj_text[4].push();
+        } else {
+          obj_text[3].push();
+          obj_text[12].push();
+        }
         flag[0] = true;
       }
       break;

@@ -98,14 +98,14 @@ function getStageImg(stagePath) {
       let x = Math.random() * 1000 + 100;
       let y = Math.random() * 500 + 100;
       img_element.style.top = y;
-      img_element.style.left = -x;
+      img_element.style.left = -x-200;
       img_element.style.zIndex = 30;
       anime({
         targets:img_element,
-        left:[-x,"1536px"],
+        left:[-x-200,"1536px"],
         fill:"backwards",
         duration:10000,
-        delay:Math.random()*10000,
+        delay:Math.random()*6000,
         easing:"linear",
         loop:true,
       })

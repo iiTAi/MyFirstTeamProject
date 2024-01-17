@@ -27,6 +27,7 @@ class WarpPortal extends ObjectClass {
         }
         rect(this.x, this.y, this.width, this.height);
 
+        strokeWeight(2);
         arc(this.x + this.width / 2, this.y + this.height / 2, this.width * 7/8, this.height * 1.7, -PI/11, PI/12)
         arc(this.x + this.width / 2 - 4, this.y + this.height / 2, this.width * 3/4, this.height * 1.5, -PI/12, PI/13)
         arc(this.x + this.width / 2 - 8, this.y + this.height / 2, this.width * 5/8, this.height * 1.2, -PI/12, PI/14)
@@ -36,6 +37,8 @@ class WarpPortal extends ObjectClass {
         arc(this.x + this.width / 2 + 8, this.y + this.height / 2, this.width * 5/8, this.height * 1.2, PI * 11/12, PI * 15/14)
 
         circle(this.x + this.width / 2, this.y + this.height / 2, 3);
+        strokeWeight(1);
+        
         if (this.red + this.green + this.blue != 765) {
             fill(0, 0, 0, 60);
             rect(this.x, this.y, this.width, this.height);

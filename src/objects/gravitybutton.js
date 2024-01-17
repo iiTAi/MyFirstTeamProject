@@ -25,6 +25,7 @@ class GravityButton extends ObjectClass {
         }
         rect(this.x, this.y, this.width, this.height);
 
+        strokeWeight(2);
         line(this.x + this.width / 3, this.y, this.x + this.width / 3, this.y + this.height);
         line(this.x + this.width / 3, this.y + this.height, this.x + this.width / 3 - 6, this.y + this.height - 5);
         line(this.x + this.width / 3, this.y + this.height, this.x + this.width / 3 + 6, this.y + this.height - 5);
@@ -32,6 +33,7 @@ class GravityButton extends ObjectClass {
         line(this.x + this.width * 2 / 3, this.y, this.x + this.width * 2 / 3, this.y + this.height);
         line(this.x + this.width * 2 / 3, this.y, this.x + this.width * 2 / 3 - 6, this.y + 5);
         line(this.x + this.width * 2 / 3, this.y, this.x + this.width * 2 / 3 + 6, this.y + 5);
+        strokeWeight(1);
         if (this.red + this.green + this.blue != 765) {
             fill(0, 0, 0, 60);
             rect(this.x, this.y, this.width, this.height);

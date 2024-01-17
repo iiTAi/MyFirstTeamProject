@@ -90,6 +90,7 @@ function getStageImg(stagePath) {
     url = ele.data.urls;
     url.forEach((element) => {
       let img_element = document.createElement("img");
+
       img_element.src = element; // 画像パス
       img_element.width = 200; // 横サイズ（px）
       img_element.height = 100;
@@ -99,6 +100,16 @@ function getStageImg(stagePath) {
       img_element.style.top = y;
       img_element.style.left = -x;
       img_element.style.zIndex = 30;
+      anime({
+        targets:img_element,
+        left:[-x,"1536px"],
+        fill:"backwards",
+        duration:10000,
+        delay:Math.random()*10000,
+        easing:"linear",
+        loop:true,
+      })
+      
 
       img_holder.appendChild(img_element);
     });

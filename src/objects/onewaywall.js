@@ -18,6 +18,7 @@ class OneWayWall extends ObjectClass {
         }
         rect(this.x, this.y, this.width, this.height);
 
+        strokeWeight(2);
         for (let i = 0; i < this.height / 50; i++) {
             line(this.x + this.width / 4, this.y + 25 + i * 50, this.x + this.width * 3 / 4, this.y + 25 + i * 50);
             if (this.direction == "right") {
@@ -33,6 +34,7 @@ class OneWayWall extends ObjectClass {
             fill(0, 0, 0, 60);
             rect(this.x, this.y, this.width, this.height);
         }
+        strokeWeight(1);
     }
 
     // 当たり判定の設定
